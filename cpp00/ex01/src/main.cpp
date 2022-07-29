@@ -1,22 +1,19 @@
 #include "myphonebook.hpp"
 
-// static	void add_contact
-
 int	main()
 {
 	PhoneBook	repertoire;
 	std::string	answer;
 
-	std::cout << "helllo" + " you" << std::endl;
 	while (std::cin.eof() != 1)
 	{
 		std::cout << "What to do ? (ADD, SEARCH, EXIT) ";
 		getline(std::cin, answer);
 		if (answer == "ADD")
 		{
-			std::cout << "Do ADD, " << repertoire.getCount() << std::endl;
+			std::cout << "Do ADD, " << repertoire.get_count() << std::endl;
 
-			repertoire.updateContact(repertoire.getCount());
+			repertoire.add_contact();
 			// repertoire.incrementCount();
 			// add_contact(&repertoire)
 		}

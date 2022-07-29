@@ -3,22 +3,22 @@
 #include <iomanip>      // std::setfill, std::setw
 #include <string>
 
-std::string truncate(std::string str, size_t width, bool show_ellipsis=true)
+std::string truncate(std::string str)
 {
-    if (str.length() > width)
-        if (show_ellipsis)
-            return str.substr(0, width) + ".";
-        else
-            return str.substr(0, width);
-    return str;
+    if (str.length() > 10)
+	{
+		str.resize(10);
+		str[9] = '.';
+	}
+	return (str);
 }
 
 int main () {
 
-	std::cout	<< std::setw(10) << truncate("index", 10) << "|"
-				<< std::setw(10) << truncate("first namec", 10) << "|"
+	std::cout	<< std::setw(10) << truncate("index") << "|"
+				<< std::setw(10) << truncate("first name") << "|"
+				<< std::setw(10) << truncate("last name") << "|"
+				<< std::setw(10) << truncate("nick name") << "|"
 				<< std::endl;
-	// std::cout << std::setfill (' ') << std::setw (10);
-	// std::cout << 77 << std::endl;
 	return (0);
 }

@@ -13,9 +13,9 @@ public:
 	PhoneBook(void);
 	~PhoneBook(void);
 
-	int		getCount(void) const;
-	void	setCount(int value);
-	void	updateContact(void);
+	int		get_count(void) const;
+	void	set_count(int value);
+	void	add_contact(void);
 };
 
 #endif

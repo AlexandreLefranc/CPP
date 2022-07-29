@@ -12,20 +12,30 @@ PhoneBook::~PhoneBook(void)
 }
 
 
-void	PhoneBook::setCount(int value)
+void	PhoneBook::set_count(int value)
 {
 	this->_count = value;
 }
 
-int		PhoneBook::getCount(void) const
+int		PhoneBook::get_count(void) const
 {
 	return (this->_count);
 }
 
-void	PhoneBook::updateContact(int count)
-{
-	this->_count += 1;
-	std::cout << this->_count << std::endl;
+static std::string ask_info(std::string info) {
+	std::string	str = "";
+	// while (/*Vide*/) {
+	// 	/*getline*/
+	// }
+}
 
-	this->_contact_list[count]
+void	PhoneBook::add_contact()
+{
+	Contact *c;
+
+	c = &this->_contact_list[this->_count % 8];
+	std::cout << "First name = " << c->get_first_name() << std::endl;
+	c->set_first_name("Bob");
+	std::cout << "First name = " << c->get_first_name() << std::endl;
+	this->_count += 1;
 }
