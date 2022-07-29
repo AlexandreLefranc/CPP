@@ -1,6 +1,4 @@
-#include "PhoneBook.hpp"
-#include "Contact.hpp"
-#include <iostream>
+#include "myphonebook.hpp"
 
 // static	void add_contact
 
@@ -9,20 +7,22 @@ int	main()
 	PhoneBook	repertoire;
 	std::string	answer;
 
-	while (1)
+	std::cout << "helllo" + " you" << std::endl;
+	while (std::cin.eof() != 1)
 	{
 		std::cout << "What to do ? (ADD, SEARCH, EXIT) ";
-		std::cin >> answer;
+		getline(std::cin, answer);
 		if (answer == "ADD")
 		{
 			std::cout << "Do ADD, " << repertoire.getCount() << std::endl;
 
-			repertoire.incrementCount();
+			repertoire.updateContact(repertoire.getCount());
+			// repertoire.incrementCount();
 			// add_contact(&repertoire)
 		}
-		if (answer == "SEARCH")
+		else if (answer == "SEARCH")
 			std::cout << "Do SEARCH" << std::endl;
-		if (answer == "EXIT")
+		else if (answer == "EXIT")
 			break;
 	}
 

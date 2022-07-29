@@ -1,11 +1,21 @@
-#include <iostream>
-#include "Contact.hpp"
+#include "myphonebook.hpp"
 
-Contact::Contact(void): _phone(0)
+Contact::Contact(void)
 {
+	std::string	answer;
+
 	std::cout << "Contact created" << std::endl;
-	// std::cout << "_phone=" << this->_phone << std::endl;
-	(void)this->_phone;
+
+	// std::cout << "What is the first name ? ";
+	// getline(std::cin, answer);
+	// std::cout << "What is the last name ? ";
+	// getline(std::cin, answer);
+	// std::cout << "What is the nick name ? ";
+	// getline(std::cin, answer);
+	// std::cout << "What is the phone number ? ";
+	// getline(std::cin, answer);
+	// std::cout << "What is the darkest secret ? ";
+	// getline(std::cin, answer);
 }
 
 Contact::~Contact(void)

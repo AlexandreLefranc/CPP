@@ -1,5 +1,4 @@
-#include <iostream>
-#include "PhoneBook.hpp"
+#include "myphonebook.hpp"
 
 PhoneBook::PhoneBook(void): _count(0)
 {
@@ -23,7 +22,10 @@ int		PhoneBook::getCount(void) const
 	return (this->_count);
 }
 
-void	PhoneBook::incrementCount(void)
+void	PhoneBook::updateContact(int count)
 {
-	this->_count = this->getCount() + 1;
+	this->_count += 1;
+	std::cout << this->_count << std::endl;
+
+	this->_contact_list[count]
 }

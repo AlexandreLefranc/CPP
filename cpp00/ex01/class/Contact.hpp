@@ -6,9 +6,9 @@
 class Contact {
 
 private:
-	std::string	_firstn;
-	std::string	_lastn;
-	std::string	_nickn;
+	std::string	_first_name;
+	std::string	_last_name;
+	std::string	_nick_name;
 	long int	_phone;
 	std::string	_secret;
 
