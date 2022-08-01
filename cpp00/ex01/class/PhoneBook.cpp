@@ -22,12 +22,12 @@ int		PhoneBook::get_count(void) const
 	return (this->_count);
 }
 
-static std::string ask_info(std::string info) {
-	std::string	str = "";
-	// while (/*Vide*/) {
-	// 	/*getline*/
-	// }
-}
+// static std::string ask_info(std::string info) {
+// 	std::string	str = "";
+// 	// while (/*Vide*/) {
+// 	// 	/*getline*/
+// 	// }
+// }
 
 void	PhoneBook::add_contact()
 {

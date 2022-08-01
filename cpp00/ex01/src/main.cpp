@@ -14,8 +14,6 @@ int	main()
 			std::cout << "Do ADD, " << repertoire.get_count() << std::endl;
 
 			repertoire.add_contact();
-			// repertoire.incrementCount();
-			// add_contact(&repertoire)
 		}
 		else if (answer == "SEARCH")
 			std::cout << "Do SEARCH" << std::endl;
