@@ -17,11 +17,12 @@ int	main()
 		if (cin.eof()) return (1);
 		if (answer == "ADD")
 		{
-			// cout << "Do ADD, " << repertoire.get_count() << endl;
 			repertoire.add_contact();
 		}
 		else if (answer == "SEARCH")
-			std::cout << "Do SEARCH" << std::endl;
+		{
+			repertoire.search();
+		}
 		else if (answer == "EXIT")
 			break;
 	}

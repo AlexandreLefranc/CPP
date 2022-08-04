@@ -2,6 +2,7 @@
 # define MYPHONEBOOK_HPP
 
 # include <iostream>
+# include <iomanip>
 # include <string>
 # include <limits>
 # include <cstdlib>
@@ -14,6 +15,8 @@ using std::cout;
 using std::cin;
 using std::endl;
 
-void ignoreLine();
+void		ignoreLine();
+int			min(int a, int b);
+std::string	truncate(std::string str);
 
 #endif

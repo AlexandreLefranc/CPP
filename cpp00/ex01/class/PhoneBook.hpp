@@ -10,12 +10,13 @@ private:
 	Contact	_contact_list[8];
 
 public:
-	PhoneBook(void);
-	~PhoneBook(void);
+	PhoneBook();
+	~PhoneBook();
 
-	int		get_count(void) const;
+	int		get_count() const;
 	void	set_count(int value);
-	void	add_contact(void);
+	void	add_contact();
+	void	search();
 };
 
 #endif
