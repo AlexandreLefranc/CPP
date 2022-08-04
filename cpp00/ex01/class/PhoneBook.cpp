@@ -29,13 +29,37 @@ int		PhoneBook::get_count(void) const
 // 	// }
 // }
 
+static std::string askInfo(std::string info)
+{
+	std::string	answer;
+
+	while (true)
+	{
+		cout << "What is your " << info << " ? ";
+		getline(cin, answer);
+		if (!cin)
+		{
+			cin.clear();
+			ignoreLine();
+		}
+		if (cin.eof()) std::exit(1);
+		if (answer.empty() == false)
+		{
+			return (answer);
+		}
+	}
+}
+
 void	PhoneBook::add_contact()
 {
 	Contact *c;
 
 	c = &this->_contact_list[this->_count % 8];
-	std::cout << "First name = " << c->get_first_name() << std::endl;
-	c->set_first_name("Bob");
-	std::cout << "First name = " << c->get_first_name() << std::endl;
+	c->set_first_name(askInfo("first name"));
+	c->set_last_name(askInfo("last name"));
+	c->set_nick_name(askInfo("nick name"));
+	c->set_phone(askInfo("phone number"));
+	c->set_secret(askInfo("darkest secret"));
+	cout << "Contact created !" << endl;
 	this->_count += 1;
 }

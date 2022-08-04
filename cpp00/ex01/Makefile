@@ -27,7 +27,8 @@ HEADER		=	include/myphonebook.hpp \
 
 
 SRCDIR		=	src/
-SRCFILE		=	main.cpp
+SRCFILE		=	main.cpp \
+				utils.cpp
 
 CLDIR		=	class/
 CLFILE		=	Contact.cpp \

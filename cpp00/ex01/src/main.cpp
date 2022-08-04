@@ -5,14 +5,19 @@ int	main()
 	PhoneBook	repertoire;
 	std::string	answer;
 
-	while (std::cin.eof() != 1)
+	while (true)
 	{
-		std::cout << "What to do ? (ADD, SEARCH, EXIT) ";
-		getline(std::cin, answer);
+		cout << "What to do ? (ADD, SEARCH, EXIT) ";
+		getline(cin, answer);
+		if (!cin)
+		{
+			cin.clear();
+			ignoreLine();
+		}
+		if (cin.eof()) return (1);
 		if (answer == "ADD")
 		{
-			std::cout << "Do ADD, " << repertoire.get_count() << std::endl;
-
+			// cout << "Do ADD, " << repertoire.get_count() << endl;
 			repertoire.add_contact();
 		}
 		else if (answer == "SEARCH")
