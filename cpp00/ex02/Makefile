@@ -11,7 +11,7 @@
 NAME = ex02
 
 CC = c++
-CFLAG = -Wall -Wextra -std=c++98
+CFLAG = -Wall -Wextra -Werror -std=c++98
 
 #------------------------------------#
 #               HEADERS              #
