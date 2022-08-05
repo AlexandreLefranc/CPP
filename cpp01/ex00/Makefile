@@ -6,7 +6,7 @@
 #    By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/05 18:01:46 by alefranc          #+#    #+#              #
-#    Updated: 2022/08/05 18:43:24 by alefranc         ###   ########.fr        #
+#    Updated: 2022/08/05 18:56:44 by alefranc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@
 #             COMPILATION            #
 #------------------------------------#
 
-NAME = ex00
+NAME = brainz
 
 CC = c++
 CFLAG = -Wall -Wextra -Werror -std=c++98
