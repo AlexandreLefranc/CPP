@@ -2,12 +2,12 @@
 
 PhoneBook::PhoneBook(void): _count(0)
 {
-	std::cout << "PhoneBook created" << std::endl;
+	// std::cout << "PhoneBook created" << std::endl;
 }
 
 PhoneBook::~PhoneBook(void)
 {
-	std::cout << "PhoneBook destroyed" << std::endl;
+	// std::cout << "PhoneBook destroyed" << std::endl;
 }
 
 
@@ -35,7 +35,7 @@ static std::string ask_info(std::string info)
 			ignoreLine();
 		}
 		if (cin.eof()) std::exit(1);
-		if (answer.empty() == false)
+		if (!trim(answer).empty())
 		{
 			return (answer);
 		}
@@ -56,12 +56,39 @@ void	PhoneBook::add_contact()
 	this->_count += 1;
 }
 
+int PhoneBook::_ask_index()
+{
+	std::string	answer;
+
+	while (true)
+	{
+		cout << "Enter the index for more information: ";
+		getline(cin, answer);
+		if (!cin)
+		{
+			cin.clear();
+			ignoreLine();
+		}
+		if (cin.eof()) std::exit(1);
+		if (answer.length() == 1
+			&& std::atoi(answer.c_str()) >= 0
+			&& std::atoi(answer.c_str()) < this->_count)
+		{
+			return (std::atoi(answer.c_str()));
+		}
+		else
+		{
+			cout << "Invalid index" << endl;
+		}
+	}
+}
+
 void	PhoneBook::search()
 {
 	cout	<< std::setw(10) << truncate("index") << "|"
 			<< std::setw(10) << truncate("first name") << "|"
 			<< std::setw(10) << truncate("last name") << "|"
-			<< std::setw(10) << truncate("nick name") << "|"
+			<< std::setw(10) << truncate("nick name")
 			<< std::endl;
 	for (int i = 0; i < min(this->_count, 8); i++)
 	{
@@ -71,5 +98,7 @@ void	PhoneBook::search()
 				<< std::setw(10) << truncate(this->_contact_list[i].get_nick_name())
 				<< endl;
 	}
-	ask_index(this);
+	cout << endl;
+	int	i = this->_ask_index();
+	this->_contact_list[i].display_contact();
 }

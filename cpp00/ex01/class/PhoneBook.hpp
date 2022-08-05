@@ -8,6 +8,7 @@ class PhoneBook {
 private:
 	int		_count;
 	Contact	_contact_list[8];
+	int		_ask_index();
 
 public:
 	PhoneBook();

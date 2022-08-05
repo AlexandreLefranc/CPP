@@ -18,5 +18,6 @@ using std::endl;
 void		ignoreLine();
 int			min(int a, int b);
 std::string	truncate(std::string str);
+std::string trim(const std::string &str);
 
 #endif

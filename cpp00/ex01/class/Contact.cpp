@@ -7,12 +7,12 @@ Contact::Contact(void):
 		_nick_name(""),
 		_phone(""),
 		_secret("") {
-	std::cout << "Contact created" << std::endl;
+	// std::cout << "Contact created" << std::endl;
 }
 
 // Destructor
 Contact::~Contact(void) {
-	std::cout << "Contact destroyed" << std::endl;
+	// std::cout << "Contact destroyed" << std::endl;
 }
 
 // Getters
@@ -47,4 +47,14 @@ void	Contact::set_phone(std::string str) {
 }
 void	Contact::set_secret(std::string str) {
 	this->_secret = str;
+}
+
+void	Contact::display_contact()
+{
+	cout << "First name:\t" << this->_first_name << endl;
+	cout << "Last name:\t" << this->_last_name << endl;
+	cout << "Nick name:\t" << this->_nick_name << endl;
+	cout << "Phone:\t\t" << this->_phone << endl;
+	cout << "Secret:\t\t" << this->_secret << endl;
+	cout << endl;
 }

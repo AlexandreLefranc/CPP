@@ -27,6 +27,8 @@ public:
 	void	set_nick_name(std::string str);
 	void	set_phone(std::string str);
 	void	set_secret(std::string str);
+
+	void	display_contact();
 };
 
 #endif
