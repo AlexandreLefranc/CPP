@@ -154,6 +154,30 @@ Reference	\= un pointeur constant, toujours dereference et jamais nul
 
 ## Filestream
 
+Permet de lire et d ecrire dans des fichiers.
+Attention, `ifstream` et `ofstream` prennent des C-string
+
+```cpp
+#include <fstream>
+
+std::ifstream	ifs(infile);
+if (ifs.is_open() == false)
+	// Error
+
+std::ofstream	ofs(outfile);
+if (ofs.is_open() == false)
+	// Error
+
+std::string buffer;
+while (ifs)
+{
+	std::getline(ifs, buffer);
+	ofs << buffer << std::endl;
+}
+```
+
+Ce bout de code recopie un fichier dans un autre.
+
 # Day 02
 
 
