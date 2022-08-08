@@ -8,4 +8,4 @@
 	- Option 3: Ne pas sous-diviser. Probleme: Fonction difficile a comprendre
 - Lorsqu'on souhaite acceder aux attributs prives au sein d'une fonction membre, est il mieux
 d'utiliser le getter ou d'aller le chercher directement ?
-- Ou mettre les fonctions associes a une classe mais qui n'est ni membre, ni non-membre ? (typiquement, dans cpp01/ex00, ou ecrire les prototypes des fonctions newZombie et randomChump)
+- Ou mettre les fonctions associes a une classe mais qui n'est ni membre, ni non-membre ? (typiquement, dans cpp01/ex00, ou ecrire les prototypes des fonctions newZombie et randomChump). Dans ce cas c'est assez logique mais si on imagine des fct qui prennent plusieurs classes, ou mettre leurs prototypes ?

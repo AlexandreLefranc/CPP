@@ -6,7 +6,7 @@
 #    By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/05 18:01:46 by alefranc          #+#    #+#              #
-#    Updated: 2022/08/08 15:16:57 by alefranc         ###   ########.fr        #
+#    Updated: 2022/08/08 15:47:26 by alefranc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@
 #             COMPILATION            #
 #------------------------------------#
 
-NAME = brainz
+NAME = moarbrainz
 
 CC = c++
 CFLAG = -Wall -Wextra -Werror -std=c++98
@@ -38,8 +38,7 @@ HEADER		=	class/Zombie.hpp
 
 SRCDIR		=	src/
 SRCFILE		=	main.cpp \
-				newZombie.cpp \
-				randomChump.cpp
+				zombieHorde.cpp
 
 CLDIR		=	class/
 CLFILE		=	Zombie.cpp
