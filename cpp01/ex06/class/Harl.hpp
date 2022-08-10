@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 20:31:24 by alefranc          #+#    #+#             */
-/*   Updated: 2022/08/10 18:11:56 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/08/10 21:23:49 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,17 @@ public:
 	void	complain(std::string level);
 
 };
+
+enum LEVEL {
+	DEBUG,
+	INFO,
+	WARNING,
+	ERROR
+};
+
+typedef struct s_symstruct {
+	std::string		key;
+	int				val;
+} t_symstruct;
 
 #endif
