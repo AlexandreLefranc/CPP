@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/08/10 17:56:31 by alefranc          #+#    #+#              #
+#    Updated: 2022/08/10 18:03:39 by alefranc         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 #------------------------------------------------------------------------------#
 #                                                                              #
 #                               DECLARATIONS                                   #
@@ -8,7 +20,7 @@
 #             COMPILATION            #
 #------------------------------------#
 
-NAME = myphonebook
+NAME = harlFilter
 
 CC = c++
 CFLAG = -Wall -Wextra -Werror -std=c++98
@@ -17,22 +29,17 @@ CFLAG = -Wall -Wextra -Werror -std=c++98
 #               HEADERS              #
 #------------------------------------#
 
-HEADER		=	include/myphonebook.hpp \
-				class/Contact.hpp \
-				class/PhoneBook.hpp
+HEADER		=	class/Harl.hpp
 
 #------------------------------------#
 #          SOURCES AND CLASSES       #
 #------------------------------------#
 
-
 SRCDIR		=	src/
-SRCFILE		=	main.cpp \
-				utils.cpp
+SRCFILE		=	main.cpp
 
 CLDIR		=	class/
-CLFILE		=	Contact.cpp \
-				PhoneBook.cpp
+CLFILE		=	Harl.cpp
 
 SRC			=	$(addprefix $(SRCDIR), $(SRCFILE))
 CL			=	$(addprefix $(CLDIR), $(CLFILE))
@@ -49,7 +56,7 @@ OBJ			=	$(subst $(SRCDIR),$(OBJDIR),$(SRC:.cpp=.o)) \
 #               SUMMARY              #
 #------------------------------------#
 
-INC_FLAG	= -I include -I class
+INC_FLAG	= -I class
 LD_FLAG	=
 
 #------------------------------------------------------------------------------#

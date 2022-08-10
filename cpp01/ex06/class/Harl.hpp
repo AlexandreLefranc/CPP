@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   myphonebook.hpp                                    :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/10 18:31:38 by alefranc          #+#    #+#             */
-/*   Updated: 2022/08/10 18:31:39 by alefranc         ###   ########.fr       */
+/*   Created: 2022/08/08 20:31:24 by alefranc          #+#    #+#             */
+/*   Updated: 2022/08/10 18:11:56 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MYPHONEBOOK_HPP
-# define MYPHONEBOOK_HPP
+#ifndef HARL_HPP
+# define HARL_HPP
 
-# include <iostream>
-# include <iomanip>
-# include <string>
-# include <limits>
-# include <cstdlib>
-# include <unistd.h>
+#include <string>
 
-# include "PhoneBook.hpp"
-# include "Contact.hpp"
+class Harl
+{
 
-using std::cout;
-using std::cin;
-using std::endl;
+private:
 
-void		ignoreLine();
-int			min(int a, int b);
-std::string	truncate(std::string str);
-std::string trim(const std::string &str);
+	void	_debug(void);
+	void	_info(void);
+	void	_warning(void);
+	void	_error(void);
+
+public:
+
+	Harl();
+	~Harl();
+
+	void	complain(std::string level);
+
+};
 
 #endif

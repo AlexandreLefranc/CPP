@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 20:48:45 by alefranc          #+#    #+#             */
-/*   Updated: 2022/08/10 17:57:38 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/08/10 18:08:18 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 int	main()
 {
 	Harl	complainer;
+	
 	std::cout << "Complaining about DEBUG level" << std::endl;
 	complainer.complain("DEBUG");
 

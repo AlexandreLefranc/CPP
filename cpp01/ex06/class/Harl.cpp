@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 20:34:34 by alefranc          #+#    #+#             */
-/*   Updated: 2022/08/10 17:57:29 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/08/10 18:08:30 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,21 +56,20 @@ void	Harl::_error()
 		<< std::endl;
 }
 
-
 void	Harl::complain(std::string level)
 {
-	t_pair	fcts[4] = {
-		{"DEBUG", &Harl::_debug},
-		{"INFO", &Harl::_info},
-		{"WARNING", &Harl::_warning},
-		{"ERROR", &Harl::_error}
-	};
-
-	for (int i = 0; i < 4; i++)
+	switch (level)
 	{
-		if (level == fcts[i].name)
-		{
-			(this->*(fcts[i].fptr))();
-		}
+		case "DEBUG":
+			this->_debug();
+		case "INFO":
+			this->_info();
+		case "WARNING":
+			this->_warning();
+		case "ERROR":
+			this->_error();
+		default:
+			std::cout << "Error! Invalid level of log" << std::endl;
+			break;
 	}
 }

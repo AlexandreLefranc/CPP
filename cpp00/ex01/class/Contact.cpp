@@ -1,18 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/10 18:31:49 by alefranc          #+#    #+#             */
+/*   Updated: 2022/08/10 18:33:17 by alefranc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "myphonebook.hpp"
 
-// Constructor
 Contact::Contact(void):
 		_first_name(""),
 		_last_name(""),
 		_nick_name(""),
 		_phone(""),
 		_secret("") {
-	// std::cout << "Contact created" << std::endl;
+	return;
 }
 
 // Destructor
 Contact::~Contact(void) {
-	// std::cout << "Contact destroyed" << std::endl;
+	return;
 }
 
 // Getters
@@ -49,7 +60,7 @@ void	Contact::set_secret(std::string str) {
 	this->_secret = str;
 }
 
-void	Contact::display_contact()
+void	Contact::display_contact() const
 {
 	cout << "First name:\t" << this->_first_name << endl;
 	cout << "Last name:\t" << this->_last_name << endl;

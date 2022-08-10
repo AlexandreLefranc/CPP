@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/10 18:31:46 by alefranc          #+#    #+#             */
+/*   Updated: 2022/08/10 18:36:14 by alefranc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "myphonebook.hpp"
 
 PhoneBook::PhoneBook(void): _count(0)
 {
-	// std::cout << "PhoneBook created" << std::endl;
+	return;
 }
 
 PhoneBook::~PhoneBook(void)
 {
-	// std::cout << "PhoneBook destroyed" << std::endl;
+	return;
 }
 
 
@@ -56,7 +68,7 @@ void	PhoneBook::add_contact()
 	this->_count += 1;
 }
 
-int PhoneBook::_ask_index()
+int PhoneBook::_ask_index() const
 {
 	std::string	answer;
 
@@ -83,7 +95,7 @@ int PhoneBook::_ask_index()
 	}
 }
 
-void	PhoneBook::search()
+void	PhoneBook::search() const
 {
 	cout	<< std::setw(10) << truncate("index") << "|"
 			<< std::setw(10) << truncate("first name") << "|"

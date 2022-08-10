@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/10 18:31:33 by alefranc          #+#    #+#             */
+/*   Updated: 2022/08/10 18:33:25 by alefranc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 
@@ -28,7 +40,7 @@ public:
 	void	set_phone(std::string str);
 	void	set_secret(std::string str);
 
-	void	display_contact();
+	void	display_contact() const;
 };
 
 #endif
