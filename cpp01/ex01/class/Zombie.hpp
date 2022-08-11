@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 17:43:52 by alefranc          #+#    #+#             */
-/*   Updated: 2022/08/08 15:30:22 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/08/11 16:40:08 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class	Zombie
 {
 
 private:
+	
 	std::string	_name;
 
 public:

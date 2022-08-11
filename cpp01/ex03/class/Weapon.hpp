@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 16:38:21 by alefranc          #+#    #+#             */
-/*   Updated: 2022/08/08 16:58:36 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/08/11 16:47:09 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 class	Weapon
 {
+
 private:
 
 	std::string	_type;

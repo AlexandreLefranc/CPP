@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 20:48:45 by alefranc          #+#    #+#             */
-/*   Updated: 2022/08/10 17:57:38 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/08/11 17:07:29 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	main()
 
 	std::cout << std::endl << "Complaining about ERROR level" << std::endl;
 	complainer.complain("ERROR");
-
 
 	return (0);
 }

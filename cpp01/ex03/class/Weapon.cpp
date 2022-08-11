@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 16:40:36 by alefranc          #+#    #+#             */
-/*   Updated: 2022/08/08 17:00:21 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/08/11 16:46:29 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,11 @@
 
 Weapon::Weapon(std::string type): _type(type)
 {
-	// std::cout << "Club constructor called with type=" << type << std::endl;
 	return;
 }
 
 Weapon::~Weapon()
 {
-	// std::cout << "Club destructor called" << std::endl;
 	return;
 }
 
