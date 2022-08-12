@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 16:38:21 by alefranc          #+#    #+#             */
-/*   Updated: 2022/08/11 16:47:09 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/08/12 14:40:50 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ public:
 	Weapon(std::string type);
 	~Weapon();
 
-	std::string	getType() const;
+	std::string	const & getType() const;
 	void		setType(std::string type);
 
 };

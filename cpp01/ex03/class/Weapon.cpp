@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 16:40:36 by alefranc          #+#    #+#             */
-/*   Updated: 2022/08/11 16:46:29 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/08/12 14:43:52 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Weapon::~Weapon()
 	return;
 }
 
-std::string	Weapon::getType() const
+std::string	const & Weapon::getType() const
 {
 	return (this->_type);
 }

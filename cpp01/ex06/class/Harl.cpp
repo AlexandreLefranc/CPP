@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 20:34:34 by alefranc          #+#    #+#             */
-/*   Updated: 2022/08/10 21:26:35 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/08/12 11:54:08 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,23 +55,6 @@ void	Harl::_error()
 		<< "This is unacceptable! I want to speak to the manager now."
 		<< std::endl;
 }
-
-// https://stackoverflow.com/questions/4014827/how-can-i-compare-strings-in-c-using-a-switch-statement
-// Try answer with
-
-
-
-// static int	keytostring(std::string str, t_symstruct &lookuptable)
-// {
-// 	for (int i = 0; i < 4; i++)
-// 	{
-// 		if (str == lookuptable[i].key)
-// 		{
-// 			return (lookuptable[i].val);
-// 		}
-// 	}
-// 	return (-1);
-// }
 
 void	Harl::complain(std::string level)
 {

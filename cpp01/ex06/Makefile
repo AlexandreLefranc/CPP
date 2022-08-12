@@ -6,7 +6,7 @@
 #    By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/10 17:56:31 by alefranc          #+#    #+#              #
-#    Updated: 2022/08/10 21:07:24 by alefranc         ###   ########.fr        #
+#    Updated: 2022/08/12 12:29:56 by alefranc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@
 NAME = harlFilter
 
 CC = c++
-CFLAG = -Wall -Wextra -Werror #-std=c++98
+CFLAG = -Wall -Wextra -Werror -std=c++98
 
 #------------------------------------#
 #               HEADERS              #

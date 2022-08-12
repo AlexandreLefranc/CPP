@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:42:12 by alefranc          #+#    #+#             */
-/*   Updated: 2022/08/08 19:43:39 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/08/12 15:05:46 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,15 @@ int	main(int argc, char **argv)
 	}
 
 	std::string buffer;
-	while (ifs)
+	while (!ifs.eof())
 	{
 		std::getline(ifs, buffer);
 		str_replace_inplace(buffer, argv[2], argv[3]);
 		ofs << buffer;
-		ofs << std::endl;
+		if (!ifs.eof())
+		{
+			ofs << std::endl;
+		}
 	}
 
 	return (0);

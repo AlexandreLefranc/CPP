@@ -6,7 +6,7 @@
 #    By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/12 12:30:24 by alefranc          #+#    #+#              #
-#    Updated: 2022/08/12 12:31:03 by alefranc         ###   ########.fr        #
+#    Updated: 2022/08/12 12:34:59 by alefranc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@
 #             COMPILATION            #
 #------------------------------------#
 
-NAME = babyfixed
+NAME = teenfixed
 
 CC = c++
 CFLAG = -Wall -Wextra -Werror -std=c++98
