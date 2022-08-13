@@ -121,7 +121,42 @@ On peut initialiser une instance avec des valeurs donnees par l utilisateur.
 
 ## Comparateurs
 
-## Fonction et attributs non membre
+## Fonction et attribut non membre
+
+Permet de definir des variables et fonction qui seront commune pour toutes les instances de la classes.
+
+Les fonctions et attributs non membres sont definis avec le mot clef `static`.
+
+```cpp
+Class	Sample {
+private:
+	Sample();
+	~Sample();
+	static int	getNbInst();
+public:
+	static int	_nbInst;
+}
+```
+
+Dans cet exemple, `_nbInst` sera un attribut non membre. Il sera donc unique au niveau de la classe et commun a toutes les instances.
+
+La variable ne sera initialisee qu une seule fois. Son initialisation est dans le `Sample.cpp` sous la forme `int Sample::_nbInst = 0;`.
+
+La fonction non membre `getNbInst()` est egalement definie dans `Sample.cpp` tel que
+
+```cpp
+int Sample::getNbInst() {
+	return (Sample::_nbInst);
+}
+```
+
+On peut appeler la fonction comme ceci: `Sample::getNbInst()`
+
+On remarque que:
+
+- Le mot clef `this` n est jamais utilise.
+- On perd le mot clef `static` au moment de la definition.
+- On a pas besoin d instance de la classe pour appeler la fonction non membre.
 
 ## Pointeurs vers membre
 
@@ -169,7 +204,7 @@ if (ofs.is_open() == false)
 	// Error
 
 std::string buffer;
-while (ifs)
+while (ifs.eof() == false)
 {
 	std::getline(ifs, buffer);
 	ofs << buffer << std::endl;
@@ -180,6 +215,56 @@ Ce bout de code recopie un fichier dans un autre.
 
 # Day 02
 
+## Polymorphisme
+
+Permet de creer des classes et fonctions qui peuvent prendre des arguments differents.
+
+```cpp
+void	bar(int i);
+void	bar(float f);
+void	bar(std::string s);
+```
+
+On doit ecrire la definition de la fonction pour chaque polymorphe.
+
+## Operator overload
+
+[Wiki de tous les operateurs](https://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B)
+
+Permet de definir le comportement d une instance d une classe lorsqu il rencontre un operateur.
+
+Le comportement d assignation `a = b` sera definit comme ca:
+
+```cpp
+Type	& operator =(Type const & rhs)
+{
+	if (this != & rhs)
+	{
+		this->_attr = rhs.getAttr();
+		...
+	}
+}
+```
+
+Cas particulier de l operateur `<<`: Il est independant de la classe.
+
+```cpp
+std::ostream	& operator <<(std::ostream & o, Type const & rhs)
+{
+	o << rhs.getAttr();
+	...
+	return (o);
+}
+```
+
+## Forme canonique
+
+Les definitions de classes doivent avoir au minimum:
+
+- Un constructeur par defaut, qui ne prend aucun argument.
+- Un constructeur par copie, qui prend une reference constante vers une autre instance de la classe.
+- Un destructeur.
+- Une surcharge d operateur d assignation `=`.
 
 # Day 03
 # Day 04

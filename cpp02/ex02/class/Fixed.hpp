@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 18:30:55 by alefranc          #+#    #+#             */
-/*   Updated: 2022/08/12 18:44:43 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/08/13 17:34:19 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,30 @@ private:
 public:
 
 	Fixed();
-	Fixed(Fixed const &fixed);
+	Fixed(Fixed const & fixed);
 	Fixed(int const val);
 	Fixed(float const val);
 
 	~Fixed();
 
-	Fixed			&operator=(Fixed const &fixed);
+	Fixed	& operator=(Fixed const &rhs);
+
+	bool 	operator<(Fixed const &rhs);
+	bool	operator<=(Fixed const &rhs);
+	bool	operator>(Fixed const &rhs);
+	bool	operator>=(Fixed const &rhs);
+	bool	operator==(Fixed const &rhs);
+	bool	operator!=(Fixed const &rhs);
+
+	Fixed	operator+(Fixed const &rhs);
+	Fixed	operator-(Fixed const &rhs);
+	Fixed	operator*(Fixed const &rhs);
+	Fixed	operator/(Fixed const &rhs);
+
+	Fixed	& operator++();
+	Fixed	operator++(int);
+	Fixed	& operator--();
+	Fixed	operator--(int);
 
 	int		getRawBits() const;
 	void	setRawBits(int const raw);
@@ -44,6 +61,6 @@ public:
 	static int		getBinaryPointPos();
 };
 
-std::ostream	&operator<<(std::ostream &o, Fixed const &fixed);
+std::ostream	& operator<<(std::ostream &o, Fixed const &fixed);
 
 #endif
