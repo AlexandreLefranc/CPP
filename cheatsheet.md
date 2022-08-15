@@ -110,16 +110,81 @@ int Example::bar(void) {
 ## Initialization list
 
 On peut initialiser une instance avec des valeurs donnees par l utilisateur.
+Dans le constructeur:
+
+```cpp
+Sample::Sample(int const i): _private_attr(i), _other_attr(NULL)
+{
+	// Constructor
+}
+```
 
 ## Const
 
+Des qu une fonction membre doit uniquement acceder et non pas modifier un attribut, ajouter le mot clef `const` a la fin de la declaration. Ca permet de nous avertir quand on fait un peu n importe quoi.
+
+```cpp
+int	getAttr() const;
+```
+
+Bonne pratique tres importante askip !
+
 ## Visibilite
+
+Dans une classe, on peut definir 3 niveaux de visibilites (aka d encapsulation):
+
+- `private`: Les elements prives ne sont accessible qu aux fonctions de la classe. Elle ne sont pas accessible a l utilisateur de la classe. Ce sont les details de l implementation de la classe.
+- `protected`: cf plus tard
+- `public`: Les elements publics sont accessible par tout le monde. C est par les fonctions membres public que l utilisateur manipule la classe.
+
+```cpp
+class Sample {
+private:
+	Sample();
+	~Sample();
+	int		publicFoo;
+	void	publicBar() const;
+
+public:
+	int		_privateFoo;
+	void	_privateBar() const;
+}
+```
+
+Par convention, les elements prives sont precede d un underscore.
+
+De maniere general, toutes les variables de la classe sont privees. Elle sont disponible a la lecture et l ecriture avec des fonctions publics (getter et setter respectivement) tel que:
+
+```cpp
+int		getPrivateFoo() const;
+void	setPrivateFoo(int const i);
+```
 
 ## Class vs Struct
 
+Les classes et les structures sont tres similaire qvec c++.
+
+La difference est:
+
+- Une structure a un score par defaut public.
+- Une classe a un score par defaut prive.
+
+Les structures seront utilise surtout pour stocker des informations de differents types alors que les classes sont destinees a etre manipule et modifie par l utilisateur.
+
 ## Accesseurs
 
+Etant donne que tous les attributs sont prives, on y accede avec des accesseurs:
+
+- `get` pour recuperer la valeur d un attribut. Les getters seront toujours `const`.
+- `set` pour donner une valeur a un attribut.
+
+Elles seront dans la partie public.
+
 ## Comparateurs
+
+Ne pas confondre:
+- la comparaison physique, est ce que les deux objets sont identiques ? Cad est ce qu'ils ont la meme adresse em memoire ?
+- la comparaison structurelle, est ce que tous les attributs des deux objets sont identiques, quand bien meme que leurs adresses en memoire est differente.
 
 ## Fonction et attribut non membre
 
@@ -129,11 +194,12 @@ Les fonctions et attributs non membres sont definis avec le mot clef `static`.
 
 ```cpp
 Class	Sample {
-private:
+public:
 	Sample();
 	~Sample();
 	static int	getNbInst();
-public:
+
+private:
 	static int	_nbInst;
 }
 ```
