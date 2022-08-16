@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 18:30:55 by alefranc          #+#    #+#             */
-/*   Updated: 2022/08/15 15:57:44 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/08/16 16:54:42 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,10 @@ public:
 	int		toInt() const;
 
 	static int		getBinaryPointPos();
-	static Fixed	& min(Fixed &lhs, Fixed &rhs);
-	static Fixed	& min(Fixed const &lhs, Fixed const &rhs);
-	static Fixed	& max(Fixed &lhs, Fixed &rhs);
-	static Fixed	& max(Fixed const &lhs, Fixed const &rhs);
+	static Fixed		& min(Fixed & lhs, Fixed & rhs);
+	static Fixed const	& min(Fixed const & lhs, Fixed const & rhs);
+	static Fixed		& max(Fixed & lhs, Fixed &rhs);
+	static Fixed const	& max(Fixed const & lhs, Fixed const & rhs);
 };
 
 std::ostream	& operator<<(std::ostream &o, Fixed const &fixed);

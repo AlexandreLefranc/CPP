@@ -6,7 +6,7 @@
 #    By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/12 12:30:24 by alefranc          #+#    #+#              #
-#    Updated: 2022/08/13 17:12:19 by alefranc         ###   ########.fr        #
+#    Updated: 2022/08/16 16:25:31 by alefranc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,9 @@ SRCDIR		=	src/
 SRCFILE		=	main.cpp
 
 CLDIR		=	class/
-CLFILE		=	Fixed.cpp
+CLFILE		=	Fixed.cpp \
+				Fixed.construct.cpp \
+				Fixed.operator.cpp
 
 SRC			=	$(addprefix $(SRCDIR), $(SRCFILE))
 CL			=	$(addprefix $(CLDIR), $(CLFILE))
