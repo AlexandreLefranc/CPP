@@ -333,6 +333,30 @@ Les definitions de classes doivent avoir au minimum:
 - Une surcharge d operateur d assignation `=`.
 
 # Day 03
+
+## Heritage
+
+L heritage permet de creer une classe derive d une autre classe.
+
+```cpp
+Class Cat: public Animal
+{
+	// Class implementation
+}
+```
+
+Dans cet exemple, dire que la classe `Cat` herite de l'animal veut dire que `Cat` est un animal.
+
+La classe `Cat` herite de tous les attributs et fonctions membres prives ou publics de `Animal`.
+
+Les classes herites doivent aussi avoir une forme canonique.
+
+Le mot clef `protected:` est un nouveau niveau d encapsulation. Il veut dire que les elements
+dans ce niveau d encapsulation sera accessible uniquement par une instance de la classe ou une
+instance d une classe derivee.
+
+`private:` reste accessible depuis une instance de classe mais pas depuis des classes derivees.
+
 # Day 04
 # Day 05
 # Day 06
