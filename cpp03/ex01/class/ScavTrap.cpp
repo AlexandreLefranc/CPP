@@ -9,14 +9,14 @@
 
 ScavTrap::ScavTrap()
 {
-	std::cout << "SCAVVVTRAAAP" << std::endl;
+	std::cout << "Default ScavTrap constructor called." << std::endl;
 	return;
 }
 
 ScavTrap::ScavTrap(std::string name)
 {
 	(void)name;
-	std::cout << "NAMED SCAV" << std::endl;
+	std::cout << "Parametric ScavTrap constructor called." << std::endl;
 }
 
 // ScavTrap::ScavTrap(ScavTrap const & src)
