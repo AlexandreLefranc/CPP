@@ -4,7 +4,7 @@
 
 ## Namespaces
 
-Permet d'eviter les conflits de nom.
+Permet d eviter les conflits de nom.
 
 ```cpp
 namespace	Foo {
@@ -17,7 +17,7 @@ On accede aux elements avec `Foo::var` et `Foo::f()`.
 
 ## Stdio streams
 
-Permet d'ecrire sur la sortie standard ou d'erreur. Permet de lire de l'entree standard
+Permet d ecrire sur la sortie standard ou d erreur. Permet de lire de l entree standard
 
 ```cpp
 #include <iostream>
@@ -31,7 +31,7 @@ std::cerr << "Erreur" << std::endl;
 
 Compose de 2 fichier:
 - `Class.hpp`: Contient la classe en elle meme avec les prototypes de ses fonctions membres et non membre.
-- `Class.cpp`: Contient l'imprementation des fonctions de la classe
+- `Class.cpp`: Contient l imprementation des fonctions de la classe
 
 ```cpp
 // Example.hpp
@@ -41,6 +41,7 @@ public:
 	~Example(void); // Destructor
 }
 ```
+
 
 ```cpp
 // Example.cpp

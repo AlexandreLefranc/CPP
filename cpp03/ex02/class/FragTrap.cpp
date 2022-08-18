@@ -1,4 +1,4 @@
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 #include <iostream>
 
 /******************************************************************************
@@ -7,28 +7,28 @@
 *
 ******************************************************************************/
 
-ScavTrap::ScavTrap()
+FragTrap::FragTrap()
 {
-	std::cout << "Default ScavTrap constructor called." << std::endl;
+	std::cout << "Default FragTrap constructor called." << std::endl;
 	this->setHp(100);
-	this->setMana(50);
-	this->setDmg(20);
+	this->setMana(100);
+	this->setDmg(30);
 	return;
 }
 
-ScavTrap::ScavTrap(std::string name)
+FragTrap::FragTrap(std::string const & name)
 {
-	std::cout << "Parametric ScavTrap constructor called." << std::endl;
+	std::cout << "Parametric FragTrap constructor called." << std::endl;
 	this->setName(name);
 	this->setHp(100);
-	this->setMana(50);
-	this->setDmg(20);
+	this->setMana(100);
+	this->setDmg(30);
 	return;
 }
 
-ScavTrap::ScavTrap(ScavTrap const & src)
+FragTrap::FragTrap(FragTrap const & src)
 {
-	std::cout << "Copy ScavTrap constructor called." << std::endl;
+	std::cout << "Copy FragTrap constructor called." << std::endl;
 	*this = src;
 	return;
 }
@@ -39,9 +39,9 @@ ScavTrap::ScavTrap(ScavTrap const & src)
 *
 ******************************************************************************/
 
-ScavTrap::~ScavTrap()
+FragTrap::~FragTrap()
 {
-	std::cout << "ScavTrap destructor called." << std::endl;
+	std::cout << "FragTrap destructor called." << std::endl;
 	return;
 }
 
@@ -51,9 +51,9 @@ ScavTrap::~ScavTrap()
 *
 ******************************************************************************/
 
-ScavTrap &	ScavTrap::operator=(ScavTrap const & rhs)
+FragTrap &	FragTrap::operator=(FragTrap const & rhs)
 {
-	std::cout << "ScavTrap assignment operator called." << std::endl;
+	std::cout << "FragTrap assignment operator called." << std::endl;
 	if (this != &rhs)
 	{
 		this->setName(rhs.getName());
@@ -65,9 +65,9 @@ ScavTrap &	ScavTrap::operator=(ScavTrap const & rhs)
 	return (*this);
 }
 
-std::ostream &	operator<<(std::ostream & o, ScavTrap const & obj)
+std::ostream &	operator<<(std::ostream & o, FragTrap const &obj)
 {
-	o	<< "ScavTrap:" << obj.getName()
+	o	<< "FragTrap:" << obj.getName()
 		<< "|hp:" << obj.getHp()
 		<< "|mana:" << obj.getMana()
 		<< "|dmg:" << obj.getDmg();
@@ -87,27 +87,22 @@ std::ostream &	operator<<(std::ostream & o, ScavTrap const & obj)
 *
 ******************************************************************************/
 
-void	ScavTrap::attack(std::string const & target)
+void	FragTrap::highFivesGuys()
 {
-	std::cout << "ScavTrap " << this->getName() << " trying to attack." << std::endl;
-	if (this->getHp() <= 0)
-	{
-		std::cout << "ScavTrap " << this->getName() << " cannot attack because dead.";
-	}
-	else if (this->getMana() <= 0)
-	{
-		std::cout << "ScavTrap " << this->getName() << " cannot attack because not enough mana." << std::endl;
-	}
-	else
-	{
-		this->setMana(this->getMana() - 1);
-		std::cout	<< "ScavTrap " << this->getName() << " attacks and deals "
-					<< this->getDmg() << " to " << target << std::endl;
-	}
-	return;
-}
+	std::string	answer;
 
-void	ScavTrap::guardGate()
-{
-	std::cout << "ScavTrap " << this->getName() << " enters in Gate Keeper mode." << std::endl;
+	do
+	{
+		std::cout << "Are you my buddy ? (y/n)" << std::endl;
+		std::cin >> answer;
+
+		if (answer == "y")
+		{
+			std::cout << "High Five !!!" << std::endl;
+		}
+		else if (answer == "n")
+		{
+			std::cout << "Fuck you then" << std::endl;
+		}
+	} while (answer != "y" && answer != "n");
 }

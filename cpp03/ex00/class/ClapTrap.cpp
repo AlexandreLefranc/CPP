@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 18:16:39 by alefranc          #+#    #+#             */
-/*   Updated: 2022/08/17 15:35:58 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/08/18 14:58:40 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,26 @@ int			ClapTrap::getMana() const
 int			ClapTrap::getDmg() const
 {
 	return (this->_dmg);
+}
+
+void		ClapTrap::setName(std::string const & name)
+{
+	this->_name = name;
+}
+
+void		ClapTrap::setHp(int x)
+{
+	this->_hp = x;
+}
+
+void		ClapTrap::setMana(int x)
+{
+	this->_mana = x;
+}
+
+void		ClapTrap::setDmg(int x)
+{
+	this->_dmg = x;
 }
 
 /******************************************************************************

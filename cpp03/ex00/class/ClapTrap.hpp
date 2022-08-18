@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 18:16:41 by alefranc          #+#    #+#             */
-/*   Updated: 2022/08/17 15:18:18 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/08/18 14:41:07 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,11 @@ public:
 	int			getHp() const;
 	int			getMana() const;
 	int			getDmg() const;
+
+	void		setName(std::string const & name);
+	void		setHp(int x);
+	void		setMana(int x);
+	void		setDmg(int x);
 
 	// Member functions
 	void	attack(std::string const & target);
