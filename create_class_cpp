@@ -1,0 +1,128 @@
+#!/usr/bin/env python3
+
+"""
+Created on Tue Aug 16 21:32:54 2022
+
+@author: Alexandre
+"""
+
+import sys
+
+def create_hpp(classname):
+
+    header_file = """#ifndef {0}_HPP
+# define {0}_HPP
+
+class {1}
+{{
+
+private:
+
+protected:
+
+public:
+
+\t// Constructors
+\t{1}();
+\t{1}({1} const & src);
+
+\t// Destructors
+\t~{1}();
+
+\t// Operator overload
+\t{1} &	operator=({1} const & rhs);
+
+\t// Accessors
+
+\t// Member functions
+
+}};
+
+std::ostream &\toperator<<(std::ostream & o, {1} const &obj);
+
+#endif
+""".format(classname.upper(), classname)
+
+    with open("{}.hpp".format(classname), "w") as f:
+        f.write(header_file)
+    print("{}.hpp".format(classname), "created")
+
+
+def create_cpp(classname):
+    class_file = """#include "{0}.hpp"
+#include <iostream>
+
+/******************************************************************************
+*
+*                            Constructors
+*
+******************************************************************************/
+
+{0}::{0}()
+{{
+\treturn;
+}}
+
+{0}::{0}({0} const & src)
+{{
+\t*this = src;
+\treturn;
+}}
+
+/******************************************************************************
+*
+*                            Destructor
+*
+******************************************************************************/
+
+{0}::~{0}()
+{{
+\treturn;
+}}
+
+/******************************************************************************
+*
+*                            Operator overload
+*
+******************************************************************************/
+
+{0} &\t{0}::operator=({0} const & rhs)
+{{
+\tif (this != &rhs)
+\t{{
+\t\t// Copy all attributes
+\t}}
+
+\treturn (*this);
+}}
+
+std::ostream &\toperator<<(std::ostream & o, {0} const &obj)
+{{
+\to << "something";
+
+\t return (o);
+}}
+
+/******************************************************************************
+*
+*                            Accessors
+*
+******************************************************************************/
+
+/******************************************************************************
+*
+*                            Member functions
+*
+******************************************************************************/
+
+""".format(classname)
+
+    with open("{}.cpp".format(classname), "w") as f:
+        f.write(class_file)
+    print("{}.cpp".format(classname), "created")
+
+if __name__ == "__main__":
+
+    for classname in sys.argv[1:]:
+        create_hpp(classname)
+        create_cpp(classname)
