@@ -60,11 +60,13 @@ def create_cpp(classname):
 
 {0}::{0}()
 {{
+\tstd::cout << "Default {0} constructor called." << std::endl;
 \treturn;
 }}
 
 {0}::{0}({0} const & src)
 {{
+\tstd::cout << "Copy {0} constructor called." << std::endl;
 \t*this = src;
 \treturn;
 }}
@@ -77,6 +79,7 @@ def create_cpp(classname):
 
 {0}::~{0}()
 {{
+\tstd::cout << "{0} Destructor called." << std::endl;
 \treturn;
 }}
 
@@ -88,6 +91,7 @@ def create_cpp(classname):
 
 {0} &\t{0}::operator=({0} const & rhs)
 {{
+\tstd::cout << "{0}Assignment operator called." << std::endl;
 \tif (this != &rhs)
 \t{{
 \t\t// Copy all attributes
