@@ -27,7 +27,7 @@ public:
 \t{1}({1} const & src);
 
 \t// Destructors
-\t~{1}();
+\tvirtual ~{1}();
 
 \t// Operator overload
 \t{1} &	operator=({1} const & rhs);
