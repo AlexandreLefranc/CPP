@@ -10,19 +10,19 @@
 FragTrap::FragTrap()
 {
 	std::cout << "Default FragTrap constructor called." << std::endl;
-	this->setHp(100);
-	this->setMana(100);
-	this->setDmg(30);
+	this->_hp = 100;
+	this->_mana = 100;
+	this->_dmg = 30;
 	return;
 }
 
 FragTrap::FragTrap(std::string const & name)
 {
 	std::cout << "Parametric FragTrap constructor called." << std::endl;
-	this->setName(name);
-	this->setHp(100);
-	this->setMana(100);
-	this->setDmg(30);
+	this->_name = name;
+	this->_hp = 100;
+	this->_mana = 100;
+	this->_dmg = 30;
 	return;
 }
 
@@ -56,10 +56,10 @@ FragTrap &	FragTrap::operator=(FragTrap const & rhs)
 	std::cout << "FragTrap assignment operator called." << std::endl;
 	if (this != &rhs)
 	{
-		this->setName(rhs.getName());
-		this->setHp(rhs.getHp());
-		this->setMana(rhs.getMana());
-		this->setDmg(rhs.getDmg());
+		this->_name = rhs.getName();
+		this->_hp = rhs.getHp();
+		this->_mana = rhs.getMana();
+		this->_dmg = rhs.getDmg();
 	}
 
 	return (*this);
