@@ -13,6 +13,8 @@ def create_hpp(classname):
     header_file = """#ifndef {0}_HPP
 # define {0}_HPP
 
+# include <iostream>
+
 class {1}
 {{
 
@@ -30,7 +32,7 @@ public:
 \tvirtual ~{1}();
 
 \t// Operator overload
-\t{1}&	operator=({1} const & rhs);
+\t{1}&	operator=(const {1}& rhs);
 
 \t// Accessors (getters should return by value or const-reference)
 
@@ -38,7 +40,7 @@ public:
 
 }};
 
-std::ostream&\toperator<<(std::ostream& o, {1} const &obj);
+std::ostream&\toperator<<(std::ostream& o, const {1}& obj);
 
 #endif
 """.format(classname.upper(), classname)
@@ -50,7 +52,6 @@ std::ostream&\toperator<<(std::ostream& o, {1} const &obj);
 
 def create_cpp(classname):
     class_file = """#include "{0}.hpp"
-#include <iostream>
 
 /******************************************************************************
 *
@@ -100,9 +101,9 @@ def create_cpp(classname):
 \treturn (*this);
 }}
 
-std::ostream&\toperator<<(std::ostream& o, {0} const &obj)
+std::ostream&\toperator<<(std::ostream& o, const {0}& obj)
 {{
-\to << "something";
+\to << "A {0} instance";
 
 \t return (o);
 }}
