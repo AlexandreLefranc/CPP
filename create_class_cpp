@@ -24,21 +24,21 @@ public:
 
 \t// Constructors
 \t{1}();
-\t{1}({1} const & src);
+\t{1}(const {1}& src);
 
 \t// Destructors
 \tvirtual ~{1}();
 
 \t// Operator overload
-\t{1} &	operator=({1} const & rhs);
+\t{1}&	operator=({1} const & rhs);
 
-\t// Accessors
+\t// Accessors (getters should return by value or const-reference)
 
 \t// Member functions
 
 }};
 
-std::ostream &\toperator<<(std::ostream & o, {1} const &obj);
+std::ostream&\toperator<<(std::ostream& o, {1} const &obj);
 
 #endif
 """.format(classname.upper(), classname)
@@ -64,7 +64,7 @@ def create_cpp(classname):
 \treturn;
 }}
 
-{0}::{0}({0} const & src)
+{0}::{0}(const {0}& src)
 {{
 \tstd::cout << "Copy {0} constructor called." << std::endl;
 \t*this = src;
@@ -89,7 +89,7 @@ def create_cpp(classname):
 *
 ******************************************************************************/
 
-{0} &\t{0}::operator=({0} const & rhs)
+{0}&\t{0}::operator=(const {0}& rhs)
 {{
 \tstd::cout << "{0}Assignment operator called." << std::endl;
 \tif (this != &rhs)
@@ -100,7 +100,7 @@ def create_cpp(classname):
 \treturn (*this);
 }}
 
-std::ostream &\toperator<<(std::ostream & o, {0} const &obj)
+std::ostream&\toperator<<(std::ostream& o, {0} const &obj)
 {{
 \to << "something";
 
