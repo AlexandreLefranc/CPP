@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 18:56:42 by alefranc          #+#    #+#             */
-/*   Updated: 2022/08/18 19:16:52 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/13 14:50:38 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ WrongAnimal::WrongAnimal(): type("WrongAnimal")
 	return;
 }
 
-WrongAnimal::WrongAnimal(WrongAnimal const & src)
+WrongAnimal::WrongAnimal(const WrongAnimal& src)
 {
 	std::cout << "Copy WrongAnimal constructor called." << std::endl;
 	*this = src;
@@ -50,7 +50,7 @@ WrongAnimal::~WrongAnimal()
 *
 ******************************************************************************/
 
-WrongAnimal &	WrongAnimal::operator=(WrongAnimal const & rhs)
+WrongAnimal&	WrongAnimal::operator=(const WrongAnimal& rhs)
 {
 	std::cout << "WrongAnimal assignment operator called." << std::endl;
 	if (this != &rhs)
@@ -61,11 +61,11 @@ WrongAnimal &	WrongAnimal::operator=(WrongAnimal const & rhs)
 	return (*this);
 }
 
-std::ostream &	operator<<(std::ostream & o, WrongAnimal const &obj)
+std::ostream&	operator<<(std::ostream& o, const WrongAnimal& obj)
 {
 	o << "Type: " << obj.getType();
 
-	 return (o);
+	return (o);
 }
 
 /******************************************************************************
@@ -74,12 +74,12 @@ std::ostream &	operator<<(std::ostream & o, WrongAnimal const &obj)
 *
 ******************************************************************************/
 
-std::string	WrongAnimal::getType() const
+const std::string&	WrongAnimal::getType() const
 {
 	return (this->type);
 }
 
-void		WrongAnimal::setType(std::string type)
+void				WrongAnimal::setType(const std::string& type)
 {
 	this->type = type;
 }

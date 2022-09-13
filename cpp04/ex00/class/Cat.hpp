@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 19:03:06 by alefranc          #+#    #+#             */
-/*   Updated: 2022/08/18 19:08:46 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/13 14:16:31 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ public:
 
 	// Constructors
 	Cat();
-	Cat(Cat const & src);
+	Cat(const Cat& src);
 
 	// Destructors
 	~Cat();
 
 	// Operator overload
-	Cat &	operator=(Cat const & rhs);
+	Cat &	operator=(const Cat& rhs);
 
 	// Accessors
 
@@ -41,6 +41,6 @@ public:
 
 };
 
-std::ostream &	operator<<(std::ostream & o, Cat const &obj);
+std::ostream&	operator<<(std::ostream& o, const Cat& obj);
 
 #endif

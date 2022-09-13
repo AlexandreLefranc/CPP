@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 18:56:38 by alefranc          #+#    #+#             */
-/*   Updated: 2022/08/19 14:28:29 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/13 14:54:12 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 int	main()
 {
 	{
-		const Animal * meta = new Animal();
-		const Animal * cat = new Cat();
-		const Animal * dog = new Dog();
+		const Animal* meta = new Animal();
+		const Animal* cat = new Cat();
+		const Animal* dog = new Dog();
 
 		std::cout << "Cat type: " << cat->getType() << std::endl;
 		std::cout << "Dog type: " << dog->getType() << std::endl;
@@ -45,8 +45,8 @@ int	main()
 	std::cout << std::endl;
 
 	{
-		const WrongAnimal * wmeta = new WrongAnimal();
-		const WrongAnimal * wcat = new WrongCat();
+		const WrongAnimal* wmeta = new WrongAnimal();
+		const WrongAnimal* wcat = new WrongCat();
 
 		std::cout << "WrongCat type: " << wcat->getType() << std::endl;
 		std::cout << "WrongAnimal type: " << wmeta->getType() << std::endl;
@@ -65,8 +65,8 @@ int	main()
 	std::cout << std::endl;
 
 	{
-		const WrongAnimal * wmeta = new WrongAnimal();
-		const WrongCat * wcat = new WrongCat();
+		const WrongAnimal* wmeta = new WrongAnimal();
+		const WrongCat* wcat = new WrongCat();
 
 		std::cout << "WrongCat type: " << wcat->getType() << std::endl;
 		std::cout << "WrongAnimal type: " << wmeta->getType() << std::endl;

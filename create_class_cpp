@@ -34,7 +34,9 @@ public:
 \t// Operator overload
 \t{1}&	operator=(const {1}& rhs);
 
-\t// Accessors (getters should return by value or const-reference)
+\t// Getters (getters should return by value or const-reference)
+
+\t// Setters (setters should receive parameters by value or const-reference)
 
 \t// Member functions
 
@@ -105,7 +107,7 @@ std::ostream&\toperator<<(std::ostream& o, const {0}& obj)
 {{
 \to << "A {0} instance";
 
-\t return (o);
+\treturn (o);
 }}
 
 /******************************************************************************

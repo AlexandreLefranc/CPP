@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 18:44:01 by alefranc          #+#    #+#             */
-/*   Updated: 2022/08/18 19:16:19 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/13 14:50:43 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,23 +28,23 @@ public:
 
 	// Constructors
 	WrongAnimal();
-	WrongAnimal(WrongAnimal const & src);
+	WrongAnimal(const WrongAnimal& src);
 
 	// Destructors
 	~WrongAnimal();
 
 	// Operator overload
-	WrongAnimal &	operator=(WrongAnimal const & rhs);
+	WrongAnimal&	operator=(const WrongAnimal& rhs);
 
 	// Accessors
-	std::string	getType() const;
-	void		setType(std::string type);
+	const std::string&	getType() const;
+	void				setType(const std::string& type);
 
 	// Member functions
 	void	makeSound() const;
 
 };
 
-std::ostream &	operator<<(std::ostream & o, WrongAnimal const &obj);
+std::ostream&	operator<<(std::ostream& o, const WrongAnimal& obj);
 
 #endif

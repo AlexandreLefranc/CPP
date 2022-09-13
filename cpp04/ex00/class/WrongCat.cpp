@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 19:11:08 by alefranc          #+#    #+#             */
-/*   Updated: 2022/08/18 19:19:14 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/13 14:30:36 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ WrongCat::WrongCat()
 	return;
 }
 
-WrongCat::WrongCat(WrongCat const & src)
+WrongCat::WrongCat(const WrongCat& src): WrongAnimal(src)
 {
 	std::cout << "Copy WrongCat constructor called." << std::endl;
 	*this = src;
@@ -51,7 +51,7 @@ WrongCat::~WrongCat()
 *
 ******************************************************************************/
 
-WrongCat &	WrongCat::operator=(WrongCat const & rhs)
+WrongCat&	WrongCat::operator=(const WrongCat& rhs)
 {
 	std::cout << "WrongCat assignment operator called." << std::endl;
 	if (this != &rhs)
@@ -62,11 +62,11 @@ WrongCat &	WrongCat::operator=(WrongCat const & rhs)
 	return (*this);
 }
 
-std::ostream &	operator<<(std::ostream & o, WrongCat const &obj)
+std::ostream&	operator<<(std::ostream& o, const WrongCat& obj)
 {
 	o << "Type: " << obj.getType();
 
-	 return (o);
+	return (o);
 }
 
 /******************************************************************************

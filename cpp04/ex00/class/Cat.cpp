@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 19:11:08 by alefranc          #+#    #+#             */
-/*   Updated: 2022/08/18 19:11:08 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/13 14:30:45 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Cat::Cat()
 	return;
 }
 
-Cat::Cat(Cat const & src)
+Cat::Cat(const Cat& src): Animal(src)
 {
 	std::cout << "Copy Cat constructor called." << std::endl;
 	*this = src;
@@ -51,7 +51,7 @@ Cat::~Cat()
 *
 ******************************************************************************/
 
-Cat &	Cat::operator=(Cat const & rhs)
+Cat&	Cat::operator=(const Cat& rhs)
 {
 	std::cout << "Cat assignment operator called." << std::endl;
 	if (this != &rhs)
@@ -62,11 +62,11 @@ Cat &	Cat::operator=(Cat const & rhs)
 	return (*this);
 }
 
-std::ostream &	operator<<(std::ostream & o, Cat const &obj)
+std::ostream&	operator<<(std::ostream& o, const Cat& obj)
 {
 	o << "Type: " << obj.getType();
 
-	 return (o);
+	return (o);
 }
 
 /******************************************************************************
