@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 18:56:42 by alefranc          #+#    #+#             */
-/*   Updated: 2022/08/18 19:02:49 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/13 14:47:57 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Animal::Animal(): type("Animal")
 	return;
 }
 
-Animal::Animal(Animal const & src)
+Animal::Animal(const Animal& src)
 {
 	std::cout << "Copy Animal constructor called." << std::endl;
 	*this = src;
@@ -50,7 +50,7 @@ Animal::~Animal()
 *
 ******************************************************************************/
 
-Animal &	Animal::operator=(Animal const & rhs)
+Animal&	Animal::operator=(const Animal& rhs)
 {
 	std::cout << "Animal assignment operator called." << std::endl;
 	if (this != &rhs)
@@ -61,11 +61,11 @@ Animal &	Animal::operator=(Animal const & rhs)
 	return (*this);
 }
 
-std::ostream &	operator<<(std::ostream & o, Animal const &obj)
+std::ostream&	operator<<(std::ostream& o, const Animal& obj)
 {
 	o << "Type: " << obj.getType();
 
-	 return (o);
+	return (o);
 }
 
 /******************************************************************************
@@ -74,12 +74,12 @@ std::ostream &	operator<<(std::ostream & o, Animal const &obj)
 *
 ******************************************************************************/
 
-std::string	Animal::getType() const
+const std::string&	Animal::getType() const
 {
 	return (this->type);
 }
 
-void		Animal::setType(std::string type)
+void				Animal::setType(const std::string& type)
 {
 	this->type = type;
 }

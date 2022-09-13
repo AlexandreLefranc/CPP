@@ -6,7 +6,7 @@
 #    By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/17 15:13:36 by alefranc          #+#    #+#              #
-#    Updated: 2022/08/18 19:20:47 by alefranc         ###   ########.fr        #
+#    Updated: 2022/09/13 15:37:37 by alex             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@
 #             COMPILATION            #
 #------------------------------------#
 
-NAME = polymorphisme
+NAME = burn
 
 CC = c++
 CFLAG = -Wall -Wextra -Werror -std=c++98
@@ -32,8 +32,7 @@ CFLAG = -Wall -Wextra -Werror -std=c++98
 HEADER		=	class/Animal.hpp \
 				class/Cat.hpp \
 				class/Dog.hpp \
-				class/WrongAnimal.hpp \
-				class/WrongCat.hpp
+				class/Brain.hpp
 
 #------------------------------------#
 #          SOURCES AND CLASSES       #
@@ -46,8 +45,7 @@ CLDIR		=	class/
 CLFILE		=	Animal.cpp \
 				Cat.cpp \
 				Dog.cpp \
-				WrongAnimal.cpp \
-				WrongCat.cpp
+				Brain.cpp
 
 SRC			=	$(addprefix $(SRCDIR), $(SRCFILE))
 CL			=	$(addprefix $(CLDIR), $(CLFILE))

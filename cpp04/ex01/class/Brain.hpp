@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/13 15:20:25 by alex              #+#    #+#             */
+/*   Updated: 2022/09/13 15:30:53 by alex             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef BRAIN_HPP
 # define BRAIN_HPP
 
@@ -17,25 +29,22 @@ public:
 
 	// Constructors
 	Brain();
-	Brain(Brain const & src);
+	Brain(const Brain& src);
 
 	// Destructors
 	~Brain();
 
 	// Operator overload
-	Brain &	operator=(Brain const & rhs);
+	Brain&	operator=(const Brain& rhs);
 
 	// Accessors
-	std::string const &	getIdea(unsigned int const n) const;
-	void				setIdea(unsigned int n, std::string const & idea);
-
+	const std::string&	getIdea(int n) const;
 	int					getNbIdeas() const;
-	void				setNbIdeas(int	i);
 
 	// Member functions
-	void	addIdea(std::string const & idea);
+	void	addIdea(const std::string& idea);
 };
 
-std::ostream &	operator<<(std::ostream & o, Brain const &obj);
+std::ostream&	operator<<(std::ostream& o, const Brain& obj);
 
 #endif

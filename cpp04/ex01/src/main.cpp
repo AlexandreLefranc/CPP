@@ -6,15 +6,13 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 18:56:38 by alefranc          #+#    #+#             */
-/*   Updated: 2022/08/19 14:28:29 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/13 15:28:59 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
 #include <iostream>
 
 int	main()
@@ -41,45 +39,6 @@ int	main()
 		delete cat;
 		delete dog;
 	}
-
 	std::cout << std::endl;
-
-	{
-		const WrongAnimal * wmeta = new WrongAnimal();
-		const WrongAnimal * wcat = new WrongCat();
-
-		std::cout << "WrongCat type: " << wcat->getType() << std::endl;
-		std::cout << "WrongAnimal type: " << wmeta->getType() << std::endl;
-
-
-		std::cout << "WrongCat sound: ";
-		wcat->makeSound();
-
-		std::cout << "WrongAnimal sound: ";
-		wmeta->makeSound();
-
-		delete wmeta;
-		delete wcat;
-	}
-
-	std::cout << std::endl;
-
-	{
-		const WrongAnimal * wmeta = new WrongAnimal();
-		const WrongCat * wcat = new WrongCat();
-
-		std::cout << "WrongCat type: " << wcat->getType() << std::endl;
-		std::cout << "WrongAnimal type: " << wmeta->getType() << std::endl;
-
-		std::cout << "WrongCat sound: ";
-		wcat->makeSound();
-
-		std::cout << "WrongAnimal sound: ";
-		wmeta->makeSound();
-
-		delete wmeta;
-		delete wcat;
-	}
-
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 19:03:06 by alefranc          #+#    #+#             */
-/*   Updated: 2022/08/18 19:12:24 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/13 15:29:37 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 # define DOG_HPP
 
 # include "Animal.hpp"
+# include "Brain.hpp"
 
 class Dog: public Animal
 {
 
 private:
+
+	Brain* brain;
 
 protected:
 
@@ -26,13 +29,13 @@ public:
 
 	// Constructors
 	Dog();
-	Dog(Dog const & src);
+	Dog(const Dog& src);
 
 	// Destructors
 	~Dog();
 
 	// Operator overload
-	Dog &	operator=(Dog const & rhs);
+	Dog&	operator=(const Dog& rhs);
 
 	// Accessors
 
@@ -41,6 +44,6 @@ public:
 
 };
 
-std::ostream &	operator<<(std::ostream & o, Dog const &obj);
+std::ostream&	operator<<(std::ostream& o, const Dog& obj);
 
 #endif
