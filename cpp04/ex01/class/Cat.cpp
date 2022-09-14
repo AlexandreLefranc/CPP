@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 19:11:08 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/14 14:48:53 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/14 17:24:17 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,7 @@ Cat&	Cat::operator=(const Cat& rhs)
 	{
 		this->_brain = new Brain();
 		for (int i = 0; i < 100; i++)
-		{
 			this->_brain[i] = rhs.getBrain().getIdea(i);
-		}
 	}
 
 	return (*this);
