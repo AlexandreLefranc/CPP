@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 19:11:08 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/14 12:31:29 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/14 14:37:36 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,11 @@ std::ostream&	operator<<(std::ostream& o, const Dog& obj)
 *
 ******************************************************************************/
 
+const Brain&	Dog::getBrain()
+{
+	return (*this->_brain);
+}
+
 /******************************************************************************
 *
 *                            Member functions
@@ -86,4 +91,15 @@ std::ostream&	operator<<(std::ostream& o, const Dog& obj)
 void	Dog::makeSound() const
 {
 	std::cout << "Wooof!" << std::endl;
+}
+
+void	Dog::addIdea(const std::string& idea)
+{
+	this->_brain->addIdea(idea);
+}
+
+void	Dog::printIdeas() const
+{
+	for (int i = 0; i < this->_brain->getNbIdeas(); i++)
+		std::cout << this->_brain->getIdea(i) << std::endl;
 }

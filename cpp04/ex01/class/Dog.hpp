@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 19:03:06 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/14 12:30:33 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/14 14:37:14 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,12 @@ public:
 	Dog&	operator=(const Dog& rhs);
 
 	// Accessors
+	const Brain&	getBrain();
 
 	// Member functions
 	virtual void	makeSound() const;
+	void			addIdea(const std::string& idea);
+	void			printIdeas() const;
 
 };
 

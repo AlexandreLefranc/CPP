@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 19:11:08 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/14 14:09:13 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/14 14:48:53 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,11 @@ Cat&	Cat::operator=(const Cat& rhs)
 	std::cout << "Cat assignment operator called." << std::endl;
 	if (this != &rhs)
 	{
-		this->type = rhs.getType();
-		// this->_brain = new Brain();
-		// this->_brain = rhs.getBrain();
+		this->_brain = new Brain();
+		for (int i = 0; i < 100; i++)
+		{
+			this->_brain[i] = rhs.getBrain().getIdea(i);
+		}
 	}
 
 	return (*this);
