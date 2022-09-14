@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 19:11:08 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/13 15:07:15 by alex             ###   ########.fr       */
+/*   Updated: 2022/09/14 14:09:13 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Cat::Cat()
 {
 	std::cout << "Default Cat constructor called." << std::endl;
 	this->type = "Cat";
-	this->brain = new Brain();
+	this->_brain = new Brain();
 	return;
 }
 
@@ -43,6 +43,7 @@ Cat::Cat(const Cat& src): Animal(src)
 Cat::~Cat()
 {
 	std::cout << "Cat Destructor called." << std::endl;
+	delete this->_brain;
 	return;
 }
 
@@ -58,6 +59,8 @@ Cat&	Cat::operator=(const Cat& rhs)
 	if (this != &rhs)
 	{
 		this->type = rhs.getType();
+		// this->_brain = new Brain();
+		// this->_brain = rhs.getBrain();
 	}
 
 	return (*this);
@@ -76,6 +79,11 @@ std::ostream&	operator<<(std::ostream& o, const Cat& obj)
 *
 ******************************************************************************/
 
+const Brain&	Cat::getBrain()
+{
+	return (*this->_brain);
+}
+
 /******************************************************************************
 *
 *                            Member functions
@@ -85,4 +93,15 @@ std::ostream&	operator<<(std::ostream& o, const Cat& obj)
 void	Cat::makeSound() const
 {
 	std::cout << "Miaou!" << std::endl;
+}
+
+void	Cat::addIdea(const std::string& idea)
+{
+	this->_brain->addIdea(idea);
+}
+
+void	Cat::printIdeas() const
+{
+	for (int i = 0; i < this->_brain->getNbIdeas(); i++)
+		std::cout << this->_brain->getIdea(i) << std::endl;
 }

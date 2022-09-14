@@ -6,7 +6,7 @@
 #    By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/17 15:13:36 by alefranc          #+#    #+#              #
-#    Updated: 2022/09/13 15:37:37 by alex             ###   ########.fr        #
+#    Updated: 2022/09/14 12:49:51 by alefranc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@
 NAME = burn
 
 CC = c++
-CFLAG = -Wall -Wextra -Werror -std=c++98
+CFLAG = -Wall -Wextra -Werror -g3 -std=c++98
 
 #------------------------------------#
 #               HEADERS              #

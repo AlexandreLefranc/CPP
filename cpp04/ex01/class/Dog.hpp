@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 19:03:06 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/13 15:29:37 by alex             ###   ########.fr       */
+/*   Updated: 2022/09/14 12:30:33 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Dog: public Animal
 
 private:
 
-	Brain* brain;
+	Brain* _brain;
 
 protected:
 

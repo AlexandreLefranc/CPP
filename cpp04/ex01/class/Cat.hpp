@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 19:03:06 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/13 15:29:49 by alex             ###   ########.fr       */
+/*   Updated: 2022/09/14 14:07:25 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Cat: public Animal
 
 private:
 
-	Brain* brain;
+	Brain* _brain;
 
 protected:
 
@@ -38,9 +38,12 @@ public:
 	Cat &	operator=(const Cat& rhs);
 
 	// Accessors
+	const Brain&	getBrain();
 
 	// Member functions
 	virtual void	makeSound() const;
+	void			addIdea(const std::string& idea);
+	void			printIdeas() const;
 
 };
 
