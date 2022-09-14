@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 18:44:01 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/14 14:27:53 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/14 19:21:29 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ private:
 protected:
 
 	std::string	type;
+	Animal(const std::string& type);
 
 public:
 

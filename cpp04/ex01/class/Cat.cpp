@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 19:11:08 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/14 17:24:17 by alex             ###   ########.fr       */
+/*   Updated: 2022/09/14 19:28:34 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@
 ******************************************************************************/
 
 Cat::Cat()
+	: Animal("Cat"), _brain(new Brain())
 {
 	std::cout << "Default Cat constructor called." << std::endl;
-	this->type = "Cat";
-	this->_brain = new Brain();
 	return;
 }
 
-Cat::Cat(const Cat& src): Animal(src)
+Cat::Cat(const Cat& src)
+	: Animal(src), _brain(new Brain())
 {
 	std::cout << "Copy Cat constructor called." << std::endl;
 	*this = src;
@@ -58,9 +58,8 @@ Cat&	Cat::operator=(const Cat& rhs)
 	std::cout << "Cat assignment operator called." << std::endl;
 	if (this != &rhs)
 	{
-		this->_brain = new Brain();
 		for (int i = 0; i < 100; i++)
-			this->_brain[i] = rhs.getBrain().getIdea(i);
+			this->addIdea(rhs.getBrain().getIdea(i));
 	}
 
 	return (*this);
@@ -79,7 +78,7 @@ std::ostream&	operator<<(std::ostream& o, const Cat& obj)
 *
 ******************************************************************************/
 
-const Brain&	Cat::getBrain()
+const Brain&	Cat::getBrain() const
 {
 	return (*this->_brain);
 }

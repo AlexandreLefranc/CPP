@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 18:56:42 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/14 14:27:42 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/14 19:22:50 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,13 @@
 *                            Constructors
 *
 ******************************************************************************/
+
+Animal::Animal(const std::string& type)
+	: type(type)
+{
+	std::cout << "Protected param Animal constructor called." << std::endl;
+	return;
+}
 
 Animal::Animal(): type("Animal")
 {

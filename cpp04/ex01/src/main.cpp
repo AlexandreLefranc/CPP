@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 18:56:38 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/14 14:43:07 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/14 19:28:39 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,17 +110,18 @@ int	main()
 		std::cout << std::endl;
 		Cat*	cat2 = new Cat(*cat1);
 		std::cout << std::endl;
-		// Cat*	cat3 = new Cat();
-		// std::cout << std::endl;
-		// cat3 = cat1;
+		Cat*	cat3;
+		std::cout << std::endl;
+		cat3 = cat1;
 		std::cout << std::endl;
 
 		delete cat1;
 		std::cout << std::endl;
 		delete cat2;
 		std::cout << std::endl;
-		// delete cat3;
-		// std::cout << std::endl;
+		delete cat3;
+		std::cout << std::endl;
+		(void)cat2; (void)cat3;
 	}
 
 	std::cout << std::endl;

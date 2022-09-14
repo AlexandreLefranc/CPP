@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 19:03:06 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/14 14:07:25 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/14 18:49:37 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ public:
 	Cat &	operator=(const Cat& rhs);
 
 	// Accessors
-	const Brain&	getBrain();
+	const Brain&	getBrain() const;
 
 	// Member functions
 	virtual void	makeSound() const;

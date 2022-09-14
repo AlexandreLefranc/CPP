@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 19:11:08 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/14 14:37:36 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/14 18:50:26 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ std::ostream&	operator<<(std::ostream& o, const Dog& obj)
 *
 ******************************************************************************/
 
-const Brain&	Dog::getBrain()
+const Brain&	Dog::getBrain() const
 {
 	return (*this->_brain);
 }
