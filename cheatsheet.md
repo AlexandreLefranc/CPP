@@ -359,6 +359,9 @@ instance d une classe derivee.
 `private:` reste accessible depuis une instance de classe mais pas depuis des classes derivees.
 
 # Day 04
+
+Ca peut etre une bonne pratique de creer un constructeur protege qui prends tous les attributs en parametre. Comme ca on peut facilement initialiser la classe parent de l'enfant.
+
 # Day 05
 # Day 06
 # Day 07
