@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
 #include <iostream>
@@ -20,15 +20,15 @@ int	main()
 	{
 		std::cout << "=====Testing sounds====" << std::endl;
 
-		// const Animal* meta = new Animal();
-		const Animal* cat = new Cat();
-		const Animal* dog = new Dog();
+		// const AAnimal* meta = new AAnimal();
+		const AAnimal* cat = new Cat();
+		const AAnimal* dog = new Dog();
 
-		// std::cout << "Animal type: " << meta->getType() << std::endl;
+		// std::cout << "AAnimal type: " << meta->getType() << std::endl;
 		std::cout << "Cat type: " << cat->getType() << std::endl;
 		std::cout << "Dog type: " << dog->getType() << std::endl;
 
-		// std::cout << "Animal sound: ";
+		// std::cout << "AAnimal sound: ";
 		// meta->makeSound();
 
 		std::cout << "Cat sound: ";
@@ -46,7 +46,7 @@ int	main()
 
 	{
 		std::cout << "=====Testing array of animal====" << std::endl;
-		Animal **group = new Animal* [4];
+		AAnimal **group = new AAnimal* [4];
 
 		group[0] = new Cat();
 		std::cout << std::endl;

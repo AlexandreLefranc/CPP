@@ -20,14 +20,14 @@
 ******************************************************************************/
 
 Cat::Cat()
-	: Animal("Cat"), _brain(new Brain())
+	: AAnimal("Cat"), _brain(new Brain())
 {
 	std::cout << "Default Cat constructor called." << std::endl;
 	return;
 }
 
 Cat::Cat(const Cat& src)
-	: Animal(src), _brain(new Brain())
+	: AAnimal(src), _brain(new Brain())
 {
 	std::cout << "Copy Cat constructor called." << std::endl;
 	*this = src;

@@ -20,14 +20,14 @@
 ******************************************************************************/
 
 Dog::Dog()
-	: Animal("Dog"), _brain(new Brain())
+	: AAnimal("Dog"), _brain(new Brain())
 {
 	std::cout << "Default Dog constructor called." << std::endl;
 	return;
 }
 
 Dog::Dog(const Dog& src)
-	: Animal(src), _brain(new Brain())
+	: AAnimal(src), _brain(new Brain())
 {
 	std::cout << "Copy Dog constructor called." << std::endl;
 	*this = src;

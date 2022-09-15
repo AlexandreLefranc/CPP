@@ -29,7 +29,7 @@ CFLAG = -Wall -Wextra -Werror -g3 -std=c++98
 #               HEADERS              #
 #------------------------------------#
 
-HEADER		=	class/Animal.hpp \
+HEADER		=	class/AAnimal.hpp \
 				class/Cat.hpp \
 				class/Dog.hpp \
 				class/Brain.hpp
@@ -42,7 +42,7 @@ SRCDIR		=	src/
 SRCFILE		=	main.cpp
 
 CLDIR		=	class/
-CLFILE		=	Animal.cpp \
+CLFILE		=	AAnimal.cpp \
 				Cat.cpp \
 				Dog.cpp \
 				Brain.cpp

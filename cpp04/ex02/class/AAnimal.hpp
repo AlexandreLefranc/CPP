@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   AAnimal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 18:44:01 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/15 18:33:43 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/15 18:41:43 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <string>
 
-class Animal
+class AAnimal
 {
 
 private:
@@ -23,19 +23,19 @@ private:
 protected:
 
 	std::string	type;
-	Animal(const std::string& type);
+	AAnimal(const std::string& type);
 
 public:
 
 	// Constructors
-	Animal();
-	Animal(const Animal& src);
+	AAnimal();
+	AAnimal(const AAnimal& src);
 
 	// Destructors
-	virtual ~Animal();
+	virtual ~AAnimal();
 
 	// Operator overload
-	Animal&	operator=(const Animal& rhs);
+	AAnimal&	operator=(const AAnimal& rhs);
 
 	// Accessors
 	const std::string&	getType() const;
@@ -46,6 +46,6 @@ public:
 
 };
 
-std::ostream&	operator<<(std::ostream& o, const Animal& obj);
+std::ostream&	operator<<(std::ostream& o, const AAnimal& obj);
 
 #endif
