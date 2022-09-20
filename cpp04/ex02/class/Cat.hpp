@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 19:03:06 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/14 18:49:37 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/20 15:35:00 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ public:
 	Cat(const Cat& src);
 
 	// Destructors
-	~Cat();
+	virtual ~Cat();
 
 	// Operator overload
 	Cat &	operator=(const Cat& rhs);

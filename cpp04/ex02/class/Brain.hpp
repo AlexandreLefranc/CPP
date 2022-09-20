@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 15:20:25 by alex              #+#    #+#             */
-/*   Updated: 2022/09/13 15:30:53 by alex             ###   ########.fr       */
+/*   Updated: 2022/09/20 15:34:54 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ public:
 	Brain(const Brain& src);
 
 	// Destructors
-	~Brain();
+	virtual ~Brain();
 
 	// Operator overload
 	Brain&	operator=(const Brain& rhs);

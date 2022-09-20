@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 19:03:06 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/13 14:18:01 by alex             ###   ########.fr       */
+/*   Updated: 2022/09/20 15:33:34 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ public:
 	Dog(const Dog& src);
 
 	// Destructors
-	~Dog();
+	virtual ~Dog();
 
 	// Operator overload
 	Dog&	operator=(const Dog& rhs);
