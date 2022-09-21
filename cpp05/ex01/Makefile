@@ -6,7 +6,7 @@
 #    By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/17 15:13:36 by alefranc          #+#    #+#              #
-#    Updated: 2022/09/20 16:38:08 by alefranc         ###   ########.fr        #
+#    Updated: 2022/09/21 14:07:44 by alefranc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@
 #             COMPILATION            #
 #------------------------------------#
 
-NAME = bureaucrat
+NAME = larves
 
 CC = c++
 CFLAG = -Wall -Wextra -Werror -g3 -std=c++98
@@ -29,7 +29,8 @@ CFLAG = -Wall -Wextra -Werror -g3 -std=c++98
 #               HEADERS              #
 #------------------------------------#
 
-HEADER		=	class/Bureaucrat.hpp
+HEADER		=	class/Bureaucrat.hpp \
+				class/Form.hpp
 
 #------------------------------------#
 #          SOURCES AND CLASSES       #
@@ -39,7 +40,8 @@ SRCDIR		=	src/
 SRCFILE		=	main.cpp
 
 CLDIR		=	class/
-CLFILE		=	Bureaucrat.cpp
+CLFILE		=	Bureaucrat.cpp \
+				Form.cpp
 
 SRC			=	$(addprefix $(SRCDIR), $(SRCFILE))
 CL			=	$(addprefix $(CLDIR), $(CLFILE))

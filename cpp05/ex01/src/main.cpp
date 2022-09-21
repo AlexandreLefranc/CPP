@@ -6,11 +6,12 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 16:40:18 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/21 12:42:41 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/21 14:28:50 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include <iostream>
 
 int	main()
@@ -90,6 +91,78 @@ int	main()
 		{
 			std::cout << "Error: " << e.what() << std::endl;
 		}
+	}
+	std::cout << std::endl;
+	{
+		std::cout << "==== TESTING GOOD FORM CONSTRUCTORS ====" << std::endl;
+		Form	f = Form();
+		Form	f1 = Form("B28", 20, 30);
+		Form	f2 = Form(f1);
+		Form	f3 = Form("C29", 150, 150);
+		std::cout << f << std::endl;
+		std::cout << f1 << std::endl;
+		std::cout << f2 << std::endl;
+		std::cout << f3 << std::endl;
+		f3 = f1;
+		std::cout << f3 << std::endl;
+	}
+	std::cout << std::endl;
+	{
+		std::cout << "==== TESTING BAD FORM CONSTRUCTORS ====" << std::endl;
+		try
+		{
+			Form	f = Form("Z54", 50, 151);
+		}
+		catch (std::exception& e)
+		{
+			std::cout << "Error: " << e.what() << std::endl;
+		}
+
+		try
+		{
+			Form	f = Form("Z54", 155, 150);
+		}
+		catch (std::exception& e)
+		{
+			std::cout << "Error: " << e.what() << std::endl;
+		}
+
+		try
+		{
+			Form	f = Form("Z54", 0, 70);
+		}
+		catch (std::exception& e)
+		{
+			std::cout << "Error: " << e.what() << std::endl;
+		}
+
+		try
+		{
+			Form	f = Form("Z54", 50, -5);
+		}
+		catch (std::exception& e)
+		{
+			std::cout << "Error: " << e.what() << std::endl;
+		}
+	}
+	std::cout << std::endl;
+	{
+		std::cout << "==== TESTING GOOD FORM SIGNING CONSTRUCTORS ====" << std::endl;
+		Bureaucrat	macron = Bureaucrat("Macron", 1);
+		Bureaucrat	borne = Bureaucrat("Borne", 5);
+
+		Form		sendCrsForm = Form("Send CRS Form", 5, 1);
+		borne.signForm(sendCrsForm);
+		borne.signForm(sendCrsForm);
+	}
+	std::cout << std::endl;
+	{
+		std::cout << "==== TESTING BAD FORM SIGNING CONSTRUCTORS ====" << std::endl;
+		Bureaucrat	macron = Bureaucrat("Macron", 1);
+		Bureaucrat	borne = Bureaucrat("Borne", 5);
+
+		Form		sendCrsForm = Form("Send CRS Form", 4, 1);
+		borne.signForm(sendCrsForm);
 	}
 
 	return (0);

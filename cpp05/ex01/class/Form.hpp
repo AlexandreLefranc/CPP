@@ -1,40 +1,43 @@
-#ifndef BUREAUCRAT_HPP
-# define BUREAUCRAT_HPP
+#ifndef FORM_HPP
+# define FORM_HPP
 
 # include <iostream>
-# include "Form.hpp"
 
-class Bureaucrat
+class Bureaucrat;
+
+class Form
 {
 
 private:
 
 	const std::string	_name;
-	int					_grade;
+	bool				_signed;
+	int					_gradeSign;
+	int					_gradeExec;
 
 protected:
 
 public:
 
 	// Constructors
-	Bureaucrat();
-	Bureaucrat(const std::string& name, int grade);
-	Bureaucrat(const Bureaucrat& src);
+	Form();
+	Form(const std::string& name, int gradeSign, int gradeExec);
+	Form(const Form& src);
 
 	// Destructors
-	virtual ~Bureaucrat();
+	virtual ~Form();
 
 	// Operator overload
-	Bureaucrat&	operator=(const Bureaucrat& rhs);
+	Form&	operator=(const Form& rhs);
 
 	// Accessors (getters should return by value or const-reference)
 	const std::string&	getName() const;
-	int					getGrade() const;
+	bool				getSigned() const;
+	int					getGradeSign() const;
+	int					getGradeExec() const;
 
 	// Member functions
-	void	gradeUp();
-	void	gradeDown();
-	void	signForm(Form& form) const;
+	void	beSigned(const Bureaucrat& bureaucrat);
 
 	// Exceptions
 	class GradeTooHighException: public std::exception
@@ -48,9 +51,8 @@ public:
 	public:
 		virtual const char*	what() const throw();
 	};
-
 };
 
-std::ostream&	operator<<(std::ostream& o, const Bureaucrat& obj);
+std::ostream&	operator<<(std::ostream& o, const Form& obj);
 
 #endif

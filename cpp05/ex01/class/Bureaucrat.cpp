@@ -109,3 +109,43 @@ void	Bureaucrat::gradeDown()
 	return;
 }
 
+void	Bureaucrat::signForm(Form& form) const
+{
+	if (form.getSigned() == true)
+	{
+		std::cout	<< this->_name << " couldn't sign "
+					<< form.getName() << " because already signed" << std::endl;
+		return;
+	}
+	try
+	{
+		form.beSigned(*this);
+		std::cout << this->_name << " signed " << form.getName() << std::endl;
+	}
+	catch (Form::GradeTooLowException& e)
+	{
+		std::cout	<< this->_name << " couldn't sign "
+					<< form.getName() << " because " << e.what() << std::endl;
+	}
+	catch (std::exception& e)
+	{
+		std::cout	<< this->_name << " couldn't sign "
+					<< form.getName() << " for unknown reason"<< std::endl;
+	}
+}
+
+/******************************************************************************
+*
+*                            Exceptions
+*
+******************************************************************************/
+
+const char*	Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return ("Grade too high!");
+}
+
+const char*	Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return ("Grade too low!");
+}
