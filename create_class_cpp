@@ -94,7 +94,7 @@ def create_cpp(classname):
 
 {0}&\t{0}::operator=(const {0}& rhs)
 {{
-\tstd::cout << "{0}Assignment operator called." << std::endl;
+\tstd::cout << "{0} Assignment operator called." << std::endl;
 \tif (this != &rhs)
 \t{{
 \t\t// Copy all attributes
