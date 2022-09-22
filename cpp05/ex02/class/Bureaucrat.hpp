@@ -35,6 +35,7 @@ public:
 	void	gradeUp();
 	void	gradeDown();
 	void	signForm(Form& form) const;
+	void	executeForm(const Form& form) const;
 
 	// Exceptions
 	class GradeTooHighException;

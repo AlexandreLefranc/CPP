@@ -41,15 +41,17 @@ public:
 \t// Member functions
 
 \t// Exceptions
-\tclass ExampleException: public std::exception
-\t{{
-\tpublic:
-\t\tvirtual const char*	what() const throw();
-\t}};
+\tclass ExampleException;
 
 }};
 
 std::ostream&\toperator<<(std::ostream& o, const {1}& obj);
+
+class {1}::ExampleException: public std::exception
+{{
+public:
+\tvirtual const char*	what() const throw();
+}};
 
 #endif
 """.format(classname.upper(), classname)
