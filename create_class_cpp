@@ -47,6 +47,8 @@ public:
 
 std::ostream&\toperator<<(std::ostream& o, const {1}& obj);
 
+
+// Exception nested classes
 class {1}::ExampleException: public std::exception
 {{
 public:

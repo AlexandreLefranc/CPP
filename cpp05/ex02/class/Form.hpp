@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 19:06:20 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/22 20:02:29 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/23 12:00:06 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ protected:
 public:
 
 	// Constructors
-	// No public constructor
+	// 		No public constructor
 
 	// Destructors
 	virtual ~Form();

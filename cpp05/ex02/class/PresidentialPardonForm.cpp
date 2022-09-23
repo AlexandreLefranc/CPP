@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 19:06:12 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/23 13:53:37 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/23 14:53:39 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 /*******************************************************************************
 *
@@ -18,21 +18,21 @@
 *
 *******************************************************************************/
 
-ShrubberyCreationForm::ShrubberyCreationForm()
-	: Form("ShrubberyCreationForm", 145, 137), _target("")
+PresidentialPardonForm::PresidentialPardonForm()
+	: Form("PresidentialPardonForm", 25, 5), _target("")
 {
 	return;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& src)
-	: Form("ShrubberyCreationForm", 145, 137), _target("")
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& src)
+	: Form("PresidentialPardonForm", 25, 5), _target("")
 {
 	*this = src;
 	return;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target)
-	: Form("ShrubberyCreationForm", 145, 137), _target(target)
+PresidentialPardonForm::PresidentialPardonForm(const std::string& target)
+	: Form("PresidentialPardonForm", 25, 5), _target(target)
 {
 	return;
 }
@@ -43,7 +43,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target)
 *
 *******************************************************************************/
 
-ShrubberyCreationForm::~ShrubberyCreationForm()
+PresidentialPardonForm::~PresidentialPardonForm()
 {
 	return;
 }
@@ -54,7 +54,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 *
 *******************************************************************************/
 
-ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationForm& rhs)
+PresidentialPardonForm&	PresidentialPardonForm::operator=(const PresidentialPardonForm& rhs)
 {
 	if (this != &rhs)
 	{
@@ -64,7 +64,7 @@ ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return (*this);
 }
 
-std::ostream&	operator<<(std::ostream& o, const ShrubberyCreationForm& obj)
+std::ostream&	operator<<(std::ostream& o, const PresidentialPardonForm& obj)
 {
 	o	<< "[" << obj.getName() << "] "
 		<< (obj.getSigned() == true ? "SIGNED" : "NOT SIGNED") << "; "
@@ -81,7 +81,7 @@ std::ostream&	operator<<(std::ostream& o, const ShrubberyCreationForm& obj)
 *
 *******************************************************************************/
 
-const std::string&	ShrubberyCreationForm::getTarget() const
+const std::string&	PresidentialPardonForm::getTarget() const
 {
 	return (this->_target);
 }
@@ -92,18 +92,9 @@ const std::string&	ShrubberyCreationForm::getTarget() const
 *
 *******************************************************************************/
 
-void	ShrubberyCreationForm::_execute() const
+void	PresidentialPardonForm::_execute() const
 {
-	std::string	filename;
-
-	filename = this->_target + "_shrubbery";
-	std::ofstream	ofs(filename.c_str());
-	if (!ofs)
-	{
-		std::cerr << "File " << filename << "couldn't be open" << std::endl;
-		return;
-	}
-	ofs << "des arbres ASCII";
+	std::cout << this->_target + " has been pardonned by Zaphod Beeblebrox" << std::endl;
 
 	return;
 }

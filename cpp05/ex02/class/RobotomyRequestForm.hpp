@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 19:06:17 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/23 13:53:17 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/23 14:51:03 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-# define SHRUBBERYCREATIONFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
 
 # include <iostream>
-# include <fstream>
+# include <cstdlib>
+# include <time.h>
 # include "Form.hpp"
 
-class ShrubberyCreationForm: public Form
+class RobotomyRequestForm: public Form
 {
 
 private:
@@ -25,7 +26,7 @@ private:
 	std::string	_target;
 
 	// Constructors
-	ShrubberyCreationForm();
+	RobotomyRequestForm();
 
 protected:
 
@@ -35,14 +36,14 @@ protected:
 public:
 
 	// Constructors
-	ShrubberyCreationForm(const ShrubberyCreationForm& src);
-	ShrubberyCreationForm(const std::string& target);
+	RobotomyRequestForm(const RobotomyRequestForm& src);
+	RobotomyRequestForm(const std::string& target);
 
 	// Destructors
-	virtual ~ShrubberyCreationForm();
+	virtual ~RobotomyRequestForm();
 
 	// Operator overload
-	ShrubberyCreationForm&	operator=(const ShrubberyCreationForm& rhs);
+	RobotomyRequestForm&	operator=(const RobotomyRequestForm& rhs);
 
 	// Getters (getters should return by value or const-reference)
 	const std::string&	getTarget() const;
@@ -55,6 +56,6 @@ public:
 
 };
 
-std::ostream&	operator<<(std::ostream& o, const ShrubberyCreationForm& obj);
+std::ostream&	operator<<(std::ostream& o, const RobotomyRequestForm& obj);
 
 #endif

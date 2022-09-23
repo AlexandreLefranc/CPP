@@ -6,7 +6,7 @@
 #    By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/17 15:13:36 by alefranc          #+#    #+#              #
-#    Updated: 2022/09/22 19:54:50 by alefranc         ###   ########.fr        #
+#    Updated: 2022/09/23 14:55:14 by alefranc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,9 @@ CFLAG = -Wall -Wextra -Werror -g3 -std=c++98
 
 HEADER		=	class/Bureaucrat.hpp \
 				class/Form.hpp \
-				class/ShrubberyCreationForm.hpp
+				class/ShrubberyCreationForm.hpp \
+				class/RobotomyRequestForm.hpp \
+				class/PresidentialPardonForm.hpp
 
 #------------------------------------#
 #          SOURCES AND CLASSES       #
@@ -43,7 +45,9 @@ SRCFILE		=	main.cpp
 CLDIR		=	class/
 CLFILE		=	Bureaucrat.cpp \
 				Form.cpp \
-				ShrubberyCreationForm.cpp
+				ShrubberyCreationForm.cpp \
+				RobotomyRequestForm.cpp \
+				PresidentialPardonForm.cpp
 
 SRC			=	$(addprefix $(SRCDIR), $(SRCFILE))
 CL			=	$(addprefix $(CLDIR), $(CLFILE))
