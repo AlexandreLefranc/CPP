@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
+/*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/22 19:06:12 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/23 16:23:11 by alefranc         ###   ########.fr       */
+/*   Created: 2022/09/23 16:56:08 by alefranc          #+#    #+#             */
+/*   Updated: 2022/09/23 17:07:15 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RobotomyRequestForm.hpp"
+#include "Intern.hpp"
 
 /*******************************************************************************
 *
@@ -18,22 +18,16 @@
 *
 *******************************************************************************/
 
-RobotomyRequestForm::RobotomyRequestForm()
-	: Form("RobotomyRequestForm", 72, 45), _target("")
+Intern::Intern()
 {
+	std::cout << "Default Intern constructor called." << std::endl;
 	return;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& src)
-	: Form("RobotomyRequestForm", 72, 45), _target("")
+Intern::Intern(const Intern& src)
 {
+	std::cout << "Copy Intern constructor called." << std::endl;
 	*this = src;
-	return;
-}
-
-RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
-	: Form("RobotomyRequestForm", 72, 45), _target(target)
-{
 	return;
 }
 
@@ -43,8 +37,9 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
 *
 *******************************************************************************/
 
-RobotomyRequestForm::~RobotomyRequestForm()
+Intern::~Intern()
 {
+	std::cout << "Intern Destructor called." << std::endl;
 	return;
 }
 
@@ -54,23 +49,20 @@ RobotomyRequestForm::~RobotomyRequestForm()
 *
 *******************************************************************************/
 
-RobotomyRequestForm&	RobotomyRequestForm::operator=(const RobotomyRequestForm& rhs)
+Intern&	Intern::operator=(const Intern& rhs)
 {
+	std::cout << "Intern Assignment operator called." << std::endl;
 	if (this != &rhs)
 	{
-		this->_target = rhs.getTarget();
+		// Copy all attributes
 	}
 
 	return (*this);
 }
 
-std::ostream&	operator<<(std::ostream& o, const RobotomyRequestForm& obj)
+std::ostream&	operator<<(std::ostream& o, const Intern& obj)
 {
-	o	<< "[" << obj.getName() << "] "
-		<< (obj.getSigned() == true ? "SIGNED" : "NOT SIGNED") << "; "
-		<< "Signing grade: " << obj.getGradeSign() << "; "
-		<< "Executing grade: " << obj.getGradeExec() << "; "
-		<< "Target: " << obj.getTarget();
+	o << "An Intern";
 
 	return (o);
 }
@@ -81,36 +73,16 @@ std::ostream&	operator<<(std::ostream& o, const RobotomyRequestForm& obj)
 *
 *******************************************************************************/
 
-const std::string&	RobotomyRequestForm::getTarget() const
-{
-	return (this->_target);
-}
-
 /*******************************************************************************
 *
 *                            Member functions
 *
 *******************************************************************************/
 
-void	RobotomyRequestForm::_execute() const
+Form*	Intern::makeForm(const std::string& type, const std::string& target) const
 {
-	float	r;
-	srand(time(NULL));
-
-	std::cout << "*BZZZZZZZZZZZZZZZZZz*" << std::endl;
-	std::cout << "*CRACK*" << std::endl;
-	std::cout << "*AAHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHH*" << std::endl;
-	r = ((float)std::rand() / (float)RAND_MAX);
-	if (r > 0.5)
-	{
-		std::cout << this->_target <<" has been robotomised!"  << std::endl;
-	}
-	else
-	{
-		std::cout << "Robotomy failed! " << this->_target << " died!"   << std::endl;
-	}
-
-	return;
+	for (int i = 0; i < 4; i++)
+		std::cout << _form_type[i] << std::endl;
 }
 
 /*******************************************************************************
@@ -118,4 +90,9 @@ void	RobotomyRequestForm::_execute() const
 *                            Exceptions
 *
 *******************************************************************************/
+
+// const char*	Intern::ExampleException::what() const throw()
+// {
+// 	return ("Example exception message");
+// }
 

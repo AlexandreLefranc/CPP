@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 19:06:12 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/23 16:23:11 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/23 14:53:39 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 /*******************************************************************************
 *
@@ -18,21 +18,21 @@
 *
 *******************************************************************************/
 
-RobotomyRequestForm::RobotomyRequestForm()
-	: Form("RobotomyRequestForm", 72, 45), _target("")
+PresidentialPardonForm::PresidentialPardonForm()
+	: Form("PresidentialPardonForm", 25, 5), _target("")
 {
 	return;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& src)
-	: Form("RobotomyRequestForm", 72, 45), _target("")
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& src)
+	: Form("PresidentialPardonForm", 25, 5), _target("")
 {
 	*this = src;
 	return;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
-	: Form("RobotomyRequestForm", 72, 45), _target(target)
+PresidentialPardonForm::PresidentialPardonForm(const std::string& target)
+	: Form("PresidentialPardonForm", 25, 5), _target(target)
 {
 	return;
 }
@@ -43,7 +43,7 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
 *
 *******************************************************************************/
 
-RobotomyRequestForm::~RobotomyRequestForm()
+PresidentialPardonForm::~PresidentialPardonForm()
 {
 	return;
 }
@@ -54,7 +54,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 *
 *******************************************************************************/
 
-RobotomyRequestForm&	RobotomyRequestForm::operator=(const RobotomyRequestForm& rhs)
+PresidentialPardonForm&	PresidentialPardonForm::operator=(const PresidentialPardonForm& rhs)
 {
 	if (this != &rhs)
 	{
@@ -64,7 +64,7 @@ RobotomyRequestForm&	RobotomyRequestForm::operator=(const RobotomyRequestForm& r
 	return (*this);
 }
 
-std::ostream&	operator<<(std::ostream& o, const RobotomyRequestForm& obj)
+std::ostream&	operator<<(std::ostream& o, const PresidentialPardonForm& obj)
 {
 	o	<< "[" << obj.getName() << "] "
 		<< (obj.getSigned() == true ? "SIGNED" : "NOT SIGNED") << "; "
@@ -81,7 +81,7 @@ std::ostream&	operator<<(std::ostream& o, const RobotomyRequestForm& obj)
 *
 *******************************************************************************/
 
-const std::string&	RobotomyRequestForm::getTarget() const
+const std::string&	PresidentialPardonForm::getTarget() const
 {
 	return (this->_target);
 }
@@ -92,23 +92,9 @@ const std::string&	RobotomyRequestForm::getTarget() const
 *
 *******************************************************************************/
 
-void	RobotomyRequestForm::_execute() const
+void	PresidentialPardonForm::_execute() const
 {
-	float	r;
-	srand(time(NULL));
-
-	std::cout << "*BZZZZZZZZZZZZZZZZZz*" << std::endl;
-	std::cout << "*CRACK*" << std::endl;
-	std::cout << "*AAHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHH*" << std::endl;
-	r = ((float)std::rand() / (float)RAND_MAX);
-	if (r > 0.5)
-	{
-		std::cout << this->_target <<" has been robotomised!"  << std::endl;
-	}
-	else
-	{
-		std::cout << "Robotomy failed! " << this->_target << " died!"   << std::endl;
-	}
+	std::cout << this->_target + " has been pardonned by Zaphod Beeblebrox" << std::endl;
 
 	return;
 }

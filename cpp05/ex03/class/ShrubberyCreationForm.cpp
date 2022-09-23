@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 19:06:12 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/23 16:23:11 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/23 13:53:37 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 /*******************************************************************************
 *
@@ -18,21 +18,21 @@
 *
 *******************************************************************************/
 
-RobotomyRequestForm::RobotomyRequestForm()
-	: Form("RobotomyRequestForm", 72, 45), _target("")
+ShrubberyCreationForm::ShrubberyCreationForm()
+	: Form("ShrubberyCreationForm", 145, 137), _target("")
 {
 	return;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& src)
-	: Form("RobotomyRequestForm", 72, 45), _target("")
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& src)
+	: Form("ShrubberyCreationForm", 145, 137), _target("")
 {
 	*this = src;
 	return;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
-	: Form("RobotomyRequestForm", 72, 45), _target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target)
+	: Form("ShrubberyCreationForm", 145, 137), _target(target)
 {
 	return;
 }
@@ -43,7 +43,7 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
 *
 *******************************************************************************/
 
-RobotomyRequestForm::~RobotomyRequestForm()
+ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 	return;
 }
@@ -54,7 +54,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 *
 *******************************************************************************/
 
-RobotomyRequestForm&	RobotomyRequestForm::operator=(const RobotomyRequestForm& rhs)
+ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationForm& rhs)
 {
 	if (this != &rhs)
 	{
@@ -64,7 +64,7 @@ RobotomyRequestForm&	RobotomyRequestForm::operator=(const RobotomyRequestForm& r
 	return (*this);
 }
 
-std::ostream&	operator<<(std::ostream& o, const RobotomyRequestForm& obj)
+std::ostream&	operator<<(std::ostream& o, const ShrubberyCreationForm& obj)
 {
 	o	<< "[" << obj.getName() << "] "
 		<< (obj.getSigned() == true ? "SIGNED" : "NOT SIGNED") << "; "
@@ -81,7 +81,7 @@ std::ostream&	operator<<(std::ostream& o, const RobotomyRequestForm& obj)
 *
 *******************************************************************************/
 
-const std::string&	RobotomyRequestForm::getTarget() const
+const std::string&	ShrubberyCreationForm::getTarget() const
 {
 	return (this->_target);
 }
@@ -92,23 +92,18 @@ const std::string&	RobotomyRequestForm::getTarget() const
 *
 *******************************************************************************/
 
-void	RobotomyRequestForm::_execute() const
+void	ShrubberyCreationForm::_execute() const
 {
-	float	r;
-	srand(time(NULL));
+	std::string	filename;
 
-	std::cout << "*BZZZZZZZZZZZZZZZZZz*" << std::endl;
-	std::cout << "*CRACK*" << std::endl;
-	std::cout << "*AAHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHH*" << std::endl;
-	r = ((float)std::rand() / (float)RAND_MAX);
-	if (r > 0.5)
+	filename = this->_target + "_shrubbery";
+	std::ofstream	ofs(filename.c_str());
+	if (!ofs)
 	{
-		std::cout << this->_target <<" has been robotomised!"  << std::endl;
+		std::cerr << "File " << filename << "couldn't be open" << std::endl;
+		return;
 	}
-	else
-	{
-		std::cout << "Robotomy failed! " << this->_target << " died!"   << std::endl;
-	}
+	ofs << "des arbres ASCII";
 
 	return;
 }
