@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 19:06:20 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/25 19:41:44 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/26 15:55:30 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ public:
 	bool				getSigned() const;
 	int					getGradeSign() const;
 	int					getGradeExec() const;
-	void				setSigned(bool signed);
+	void				setSigned(bool s);
 
 	// Member functions
 	void	beSigned(const Bureaucrat& bureaucrat);

@@ -35,7 +35,8 @@ public:
 	bool				getSigned() const;
 	int					getGradeSign() const;
 	int					getGradeExec() const;
-	void				setSigned(bool signed);
+
+	void				setSigned(bool s);
 
 	// Member functions
 	void	beSigned(const Bureaucrat& bureaucrat);

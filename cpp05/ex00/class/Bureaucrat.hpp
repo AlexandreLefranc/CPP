@@ -36,20 +36,23 @@ public:
 	void	gradeDown();
 
 	// Exceptions
-	class GradeTooHighException: public std::exception
-	{
-	public:
-		virtual const char*	what() const throw();
-	};
-
-	class GradeTooLowException: public std::exception
-	{
-	public:
-		virtual const char*	what() const throw();
-	};
+	class GradeTooHighException;
+	class GradeTooLowException;
 
 };
 
 std::ostream&	operator<<(std::ostream& o, const Bureaucrat& obj);
+
+class Bureaucrat::GradeTooHighException: public std::exception
+{
+public:
+	virtual const char*	what() const throw();
+};
+
+class Bureaucrat::GradeTooLowException: public std::exception
+{
+public:
+	virtual const char*	what() const throw();
+};
 
 #endif

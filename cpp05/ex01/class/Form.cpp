@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Form.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/26 15:55:15 by alefranc          #+#    #+#             */
+/*   Updated: 2022/09/26 15:55:15 by alefranc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
@@ -30,7 +42,7 @@ Form::Form(const std::string& name, int gradeSign, int gradeExec)
 }
 
 Form::Form(const Form& src)
-	: _name(src.getName())
+	: _name(src.getName()), _gradeSign(src.getGradeSign()), _gradeExec(src.getGradeExec())
 {
 	std::cout << "Copy Form constructor called." << std::endl;
 	*this = src;
@@ -61,8 +73,6 @@ Form&	Form::operator=(const Form& rhs)
 	if (this != &rhs)
 	{
 		this->_signed = rhs.getSigned();
-		this->_gradeSign = rhs.getGradeSign();
-		this->_gradeExec = rhs.getGradeExec();
 	}
 
 	return (*this);
@@ -104,9 +114,9 @@ int					Form::getGradeExec() const
 	return (this->_gradeExec);
 }
 
-void				Form::setSigned(bool signed)
+void				Form::setSigned(bool s)
 {
-	this->_signed = signed;
+	this->_signed = s;
 }
 
 /******************************************************************************
