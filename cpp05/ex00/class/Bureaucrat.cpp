@@ -87,6 +87,11 @@ int					Bureaucrat::getGrade() const
 	return (this->_grade);
 }
 
+void				Bureaucrat::setGrade(int grade)
+{
+	this->_grade = grade;
+}
+
 /******************************************************************************
 *
 *                            Member functions

@@ -22,7 +22,6 @@ private:
 
 protected:
 
-
 public:
 \t// Constructors
 \t{1}();

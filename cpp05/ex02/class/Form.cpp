@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 19:06:24 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/22 20:25:53 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/25 19:40:23 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,11 @@ int					Form::getGradeSign() const
 int					Form::getGradeExec() const
 {
 	return (this->_gradeExec);
+}
+
+void				Form::setSigned(bool signed)
+{
+	this->_signed = signed;
 }
 
 /******************************************************************************

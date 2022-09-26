@@ -29,6 +29,7 @@ public:
 	// Accessors (getters should return by value or const-reference)
 	const std::string&	getName() const;
 	int					getGrade() const;
+	void				setGrade(int grade);
 
 	// Member functions
 	void	gradeUp();

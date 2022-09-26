@@ -140,13 +140,13 @@ Dans une classe, on peut definir 3 niveaux de visibilites (aka d encapsulation):
 
 ```cpp
 class Sample {
-private:
+public:
 	Sample();
 	~Sample();
 	int		publicFoo;
 	void	publicBar() const;
 
-public:
+private:
 	int		_privateFoo;
 	void	_privateBar() const;
 }
@@ -167,10 +167,10 @@ Les classes et les structures sont tres similaire qvec c++.
 
 La difference est:
 
-- Une structure a un score par defaut public.
-- Une classe a un score par defaut prive.
+- Une structure a un scope par defaut public.
+- Une classe a un scope par defaut prive.
 
-Les structures seront utilise surtout pour stocker des informations de differents types alors que les classes sont destinees a etre manipule et modifie par l utilisateur.
+Les structures seront utilisees surtout pour stocker des informations de differents types alors que les classes sont destinees a etre manipule et modifie par l utilisateur.
 
 ## Accesseurs
 
@@ -362,7 +362,120 @@ instance d une classe derivee.
 
 Ca peut etre une bonne pratique de creer un constructeur protege qui prends tous les attributs en parametre. Comme ca on peut facilement initialiser la classe parent de l'enfant.
 
+## Virtual
+
+Le mot cle `virtual` est utilise pour creer des methodes de classe.
+
+Les fonction membres virtuelles sont utile lorsque l'on souhaite appeler une fonction d'une classe derivee mais qu'on utilise un pointeur sur la classe de base.
+
+```cpp
+class Base
+{
+public:
+	virtual void fonction(void);
+};
+
+class Derivee: public Base
+{
+public:
+	virtual void fonction(void);
+}
+
+int main()
+{
+	Base* instance;
+
+	instance = new Derivee();
+}
+```
+
+Dans cet exemple, je veux que `instance.fonction()` appelle l'implementation de la classe derivee et pas de la classe de base.
+
+Sans le mot cle `virtual`, la fonction de base sera appelee.
+
+Avec le mot cle `virtual`, la fonction derivee sera appelee.
+
+**A partir de maintenant, tous les destructeurs devront etre virtual pour etre sur d'appeler le destructeur des classes derivee.**
+
+## Classes abstraites
+
+Une classe abstraite est une classe qui ne peux pas etre instanciee. Pour ce faire, on ajoute `= 0` a cote des prototypes de fonctions membres virtuelles.
+
+```cpp
+class Base
+{
+public:
+	virtual void fonction(void) = 0;
+};
+```
+
+Comme il n'y a aucune definition de la fonction, la classe ne peut pas etre instanciee.
+
+Cela implique que les classes derivee devront obligatoirement definir ces fonctions. Si elle ne le font pas, elles seront aussi considerees comme abstraites.
+
+Ce genre de fonctions sont appelees: fonction membre virtuelle pure.
+
+**Les classes abstraites sont prefixes par un A. Base deviendrait ABase**
+
+## Interface
+
+Une interface est une classe qui ne **contient que** des fonctions membre virtuelles pure. Pas d'attribut.
+
+**Les interfaces sont prefixes par un I. Base deviendrait IBase**
+
 # Day 05
+
+## Classes imbriquees
+
+Une classe imbriquee est une classe au sein d'une autre classe. Pas tres important sauf pour les exceptions.
+
+## Exception
+
+Les exceptions permettent une gestion plus flexible des erreurs.
+
+Les exceptions sont des classes qui heritent de `std::exception`.
+
+On peut les imbriquer dans les classes pour en faire des exceptions specifiques a une classe.
+
+```cpp
+class A
+{
+public:
+	class ExampleException;
+};
+
+class A::ExampleException: public std::exception
+{
+public:
+	virtual const char*	what() const throw();
+};
+```
+
+La methode `A::ExampleException::what()` renvoie un detail de l'exception.
+
+## Try et Catch
+
+Pour utiliser les exceptions, il faut englober le code qui peut lancer une exception dans un bloc `try`.
+
+Il faut egalement y associer une bloc `catch`.
+
+Si une exception est lancee dans le bloc `try` (ca peut etre profond), elle sera attrapee par le bloc `try` et essayera de trouver une bloc `catch` qui correspond a l'exception.
+
+```cpp
+try
+{
+	// truc qui peut generer des exceptions
+}
+catch (A::ExampleException& e)
+{
+	// Faire un truc pour gerer l'exception specifique a l'exception.
+}
+catch (std::exception& e)
+{
+	// Faire un truc pour gerer toutes les exceptions.
+}
+```
+
 # Day 06
 # Day 07
 # Day 08

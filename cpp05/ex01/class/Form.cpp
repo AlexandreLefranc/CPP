@@ -104,6 +104,11 @@ int					Form::getGradeExec() const
 	return (this->_gradeExec);
 }
 
+void				Form::setSigned(bool signed)
+{
+	this->_signed = signed;
+}
+
 /******************************************************************************
 *
 *                            Member functions

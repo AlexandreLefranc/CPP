@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Intern.cpp                                         :+:      :+:    :+:   */
+/*   Convertor.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/23 16:56:08 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/25 16:51:51 by alefranc         ###   ########.fr       */
+/*   Created: 2022/09/25 18:39:52 by alefranc          #+#    #+#             */
+/*   Updated: 2022/09/25 18:44:37 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Intern.hpp"
-#include <cstddef>
+#include "Convertor.hpp"
 
 /*******************************************************************************
 *
@@ -19,12 +18,20 @@
 *
 *******************************************************************************/
 
-Intern::Intern()
+Convertor::Convertor()
+	: _raw("0")
 {
 	return;
 }
 
-Intern::Intern(const Intern& src)
+Convertor::Convertor(const std::string& raw)
+	: _raw(raw)
+{
+	return;
+}
+
+Convertor::Convertor(const Convertor& src)
+	: _raw(src.getRaw())
 {
 	*this = src;
 	return;
@@ -36,7 +43,7 @@ Intern::Intern(const Intern& src)
 *
 *******************************************************************************/
 
-Intern::~Intern()
+Convertor::~Convertor()
 {
 	return;
 }
@@ -47,21 +54,24 @@ Intern::~Intern()
 *
 *******************************************************************************/
 
-Intern&	Intern::operator=(const Intern& rhs)
+Convertor&	Convertor::operator=(const Convertor& rhs)
 {
 	if (this != &rhs)
 	{
-		// Copy all attributes
+		_raw = rhs.getRaw();
 	}
 
 	return (*this);
 }
 
-std::ostream&	operator<<(std::ostream& o, const Intern& obj)
+std::ostream&	operator<<(std::ostream& o, const Convertor& obj)
 {
-	o << "Something...";
-	(void)obj;
+	o << "char: " << std::endl;
+	o << "int: " << std::endl;
+	o << "float: " << std::endl;
+	o << "double: " << std::endl;
 
+	(void)obj;
 	return (o);
 }
 
@@ -71,51 +81,20 @@ std::ostream&	operator<<(std::ostream& o, const Intern& obj)
 *
 *******************************************************************************/
 
+const std::string&	Convertor::getRaw() const
+{
+	return (_raw);
+}
+
 /*******************************************************************************
 *
 *                            Member functions
 *
 *******************************************************************************/
 
-Form*	Intern::_makePresidentialPardonForm(const std::string& target) const
+void	Convertor::_detect_type()
 {
-	return (new PresidentialPardonForm(target));
-}
-
-Form*	Intern::_makeRobotomyRequestForm(const std::string& target) const
-{
-	return (new RobotomyRequestForm(target));
-}
-
-Form*	Intern::_makeShrubberyCreationForm(const std::string& target) const
-{
-	return (new ShrubberyCreationForm(target));
-}
-
-Form*	Intern::makeForm(const std::string& type, const std::string& target) const
-{
-	t_form_type	allForms[] = {
-		{"presidential pardon", &Intern::_makePresidentialPardonForm},
-		{"robotomy request", &Intern::_makeRobotomyRequestForm},
-		{"shrubbery creation", &Intern::_makeShrubberyCreationForm},
-		{"", NULL}
-	};
-	int			i = 0;
-	Form*		form;
-
-	while (allForms[i].fn != NULL)
-	{
-		if (allForms[i].type == type)
-		{
-			form = (this->*(allForms[i].fn))(target);
-			std::cout << "Intern created " << allForms[i].type << std::endl;
-			return (form);
-		}
-		i++;
-	}
-	std::cout	<< "Intern could not create " << type << std::endl;
-
-	return (NULL);
+	return;
 }
 
 /*******************************************************************************
@@ -124,8 +103,8 @@ Form*	Intern::makeForm(const std::string& type, const std::string& target) const
 *
 *******************************************************************************/
 
-// const char*	Intern::ExampleException::what() const throw()
-// {
-// 	return ("Example exception message");
-// }
+const char*	Convertor::InvalidStringException::what() const throw()
+{
+	return ("input string is invalid");
+}
 

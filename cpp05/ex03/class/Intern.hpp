@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:56:14 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/23 17:05:11 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/25 16:21:09 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,19 @@
 # define INTERN_HPP
 
 # include <iostream>
-# include "Form.hpp"
+# include "PresidentialPardonForm.hpp"
+# include "RobotomyRequestForm.hpp"
+# include "ShrubberyCreationForm.hpp"
 
 class Intern
 {
 
 private:
 
-	std::string _form_type[4];
+	// Member functions
+	Form*	_makePresidentialPardonForm(const std::string& target) const;
+	Form*	_makeRobotomyRequestForm(const std::string& target) const;
+	Form*	_makeShrubberyCreationForm(const std::string& target) const;
 
 protected:
 
@@ -50,12 +55,10 @@ public:
 
 std::ostream&	operator<<(std::ostream& o, const Intern& obj);
 
-
-// Exception nested classes
-// class Intern::ExampleException: public std::exception
-// {
-// public:
-// 	virtual const char*	what() const throw();
-// };
+typedef struct s_form_type
+{
+	std::string	type;
+	Form*		(Intern::*fn)(const std::string&) const;
+}	t_form_type;
 
 #endif

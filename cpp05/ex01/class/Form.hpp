@@ -12,8 +12,8 @@ private:
 
 	const std::string	_name;
 	bool				_signed;
-	int					_gradeSign;
-	int					_gradeExec;
+	const int			_gradeSign;
+	const int			_gradeExec;
 
 protected:
 
@@ -35,6 +35,7 @@ public:
 	bool				getSigned() const;
 	int					getGradeSign() const;
 	int					getGradeExec() const;
+	void				setSigned(bool signed);
 
 	// Member functions
 	void	beSigned(const Bureaucrat& bureaucrat);
