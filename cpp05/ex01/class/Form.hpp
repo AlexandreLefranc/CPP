@@ -42,19 +42,23 @@ public:
 	void	beSigned(const Bureaucrat& bureaucrat);
 
 	// Exceptions
-	class GradeTooHighException: public std::exception
-	{
-	public:
-		virtual const char*	what() const throw();
-	};
+	class GradeTooHighException;
+	class GradeTooLowException;
 
-	class GradeTooLowException: public std::exception
-	{
-	public:
-		virtual const char*	what() const throw();
-	};
 };
 
 std::ostream&	operator<<(std::ostream& o, const Form& obj);
+
+class Form::GradeTooHighException: public std::exception
+{
+public:
+	virtual const char*	what() const throw();
+};
+
+class Form::GradeTooLowException: public std::exception
+{
+public:
+	virtual const char*	what() const throw();
+};
 
 #endif

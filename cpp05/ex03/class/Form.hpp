@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 19:06:20 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/23 12:00:06 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/27 14:40:14 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,16 @@ class Form
 
 private:
 
+	const std::string	_name;
+	bool				_signed;
+	const int			_gradeSign;
+	const int			_gradeExec;
+
 	// Constructors
 	Form();
 	Form(const Form& src);
 
 protected:
-
-	const std::string	_name;
-	bool				_signed;
-	int					_gradeSign;
-	int					_gradeExec;
 
 	// Constructors
 	Form(const std::string& name, int gradeSign, int gradeExec);
@@ -55,6 +55,7 @@ public:
 	bool				getSigned() const;
 	int					getGradeSign() const;
 	int					getGradeExec() const;
+	void				setSigned(bool s);
 
 	// Member functions
 	void	beSigned(const Bureaucrat& bureaucrat);

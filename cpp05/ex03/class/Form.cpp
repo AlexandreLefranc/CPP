@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/22 19:06:24 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/22 20:25:53 by alefranc         ###   ########.fr       */
+/*   Created: 2022/09/26 15:55:11 by alefranc          #+#    #+#             */
+/*   Updated: 2022/09/27 14:41:16 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ Form::Form(const std::string& name, int gradeSign, int gradeExec)
 }
 
 Form::Form(const Form& src)
-	: _name(src.getName())
+	: _name(src.getName()), _gradeSign(src.getGradeSign()), _gradeExec(src.getGradeExec())
 {
 	*this = src;
 	return;
@@ -68,8 +68,6 @@ Form&	Form::operator=(const Form& rhs)
 	if (this != &rhs)
 	{
 		this->_signed = rhs.getSigned();
-		this->_gradeSign = rhs.getGradeSign();
-		this->_gradeExec = rhs.getGradeExec();
 	}
 
 	return (*this);
@@ -111,6 +109,11 @@ int					Form::getGradeExec() const
 	return (this->_gradeExec);
 }
 
+void				Form::setSigned(bool s)
+{
+	this->_signed = s;
+}
+
 /******************************************************************************
 *
 *                            Member functions
@@ -127,13 +130,13 @@ void	Form::beSigned(const Bureaucrat& bureaucrat)
 	throw (Form::GradeTooLowException());
 }
 
-void	Form::execute(const Bureaucrat& executor) const
+void    Form::execute(const Bureaucrat& executor) const
 {
-	if (this->_signed == false)
-		throw (Form::NotSignedException());
-	if (executor.getGrade() > this->_gradeExec)
-		throw (Form::GradeTooLowException());
-	this->_execute();
+		if (this->_signed == false)
+			throw (Form::NotSignedException());
+		if (executor.getGrade() > this->_gradeExec)
+			throw (Form::GradeTooLowException());
+		this->_execute();
 }
 
 /******************************************************************************
@@ -144,15 +147,15 @@ void	Form::execute(const Bureaucrat& executor) const
 
 const char*	Form::GradeTooHighException::what() const throw()
 {
-	return ("grade too high!");
+	return ("Grade too high!");
 }
 
 const char*	Form::GradeTooLowException::what() const throw()
 {
-	return ("grade too low!");
+	return ("Grade too low!");
 }
 
 const char*	Form::NotSignedException::what() const throw()
 {
-	return ("not signed!");
+	return ("Form not signed!");
 }

@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 15:55:11 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/26 15:57:12 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/27 14:38:11 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,4 +158,9 @@ const char*	Form::GradeTooHighException::what() const throw()
 const char*	Form::GradeTooLowException::what() const throw()
 {
 	return ("Grade too low!");
+}
+
+const char*	Form::NotSignedException::what() const throw()
+{
+	return ("Form not signed!");
 }
