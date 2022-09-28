@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 18:39:48 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/25 19:22:21 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/28 16:34:35 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,15 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 
-	Convertor	convertor = Convertor(argv[1]);
-	std::cout << convertor;
+	try
+	{
+		Convertor	convertor = Convertor(argv[1]);
+		std::cout << convertor;
+	}
+	catch (std::exception& e)
+	{
+		std::cout << "Error: " << e.what() << std::endl; 
+	}
 
 	return (0);
 }

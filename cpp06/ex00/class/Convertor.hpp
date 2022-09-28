@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 18:39:54 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/25 19:20:16 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/28 16:32:42 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CONVERTOR_HPP
 
 # include <iostream>
+# include <cstdio>
 
 enum types {
 	INVALID,
@@ -29,7 +30,12 @@ class Convertor
 private:
 
 	std::string _raw;
-	// int			_type;
+	int			_type;
+
+	char		_char;
+	int			_int;
+	float		_float;
+	double		_double;
 
 	// Member functions
 	void	_detect_type();
@@ -50,6 +56,10 @@ public:
 
 	// Getters (getters should return by value or const-reference)
 	const std::string&	getRaw() const;
+	char				getChar() const;
+	int					getInt() const;
+	float				getFloat() const;
+	double				getDouble() const;
 
 	// Setters (setters should receive parameters by value or const-reference)
 
