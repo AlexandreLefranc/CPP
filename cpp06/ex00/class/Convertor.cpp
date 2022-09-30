@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 18:39:52 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/28 17:14:26 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/30 17:43:33 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,14 @@ Convertor::Convertor()
 Convertor::Convertor(const std::string& raw)
 	: _raw(raw), _type(0), _char(48), _int(0), _float(0.0f), _double(0.0)
 {
+	std::cout << _raw << std::endl;
 	_detect_type();
+	_convert_all();
 	std::cout << _type << std::endl;
 	return;
 }
 
 Convertor::Convertor(const Convertor& src)
-	: _raw(src.getRaw())
 {
 	*this = src;
 	return;
@@ -60,7 +61,12 @@ Convertor&	Convertor::operator=(const Convertor& rhs)
 {
 	if (this != &rhs)
 	{
-		_raw = rhs.getRaw();
+		_raw = rhs._raw;
+		_type = rhs._type;
+		_char = rhs._char;
+		_int = rhs._int;
+		_float = rhs._float;
+		_double = rhs._double;
 	}
 
 	return (*this);
@@ -68,12 +74,16 @@ Convertor&	Convertor::operator=(const Convertor& rhs)
 
 std::ostream&	operator<<(std::ostream& o, const Convertor& obj)
 {
-	o << "char: " << obj.getChar() << std::endl;
+	if (obj.getInt() < 32 || obj.getInt() > 126)
+		o << "char: Non displayable" << std::endl;
+	else
+		o << "char: " << "'" << obj.getChar() << "'" << std::endl;
+
 	o << "int: " << obj.getInt() << std::endl;
+	o << std::setprecision(1) << std::fixed;
 	o << "float: " << obj.getFloat() << "f" << std::endl;
 	o << "double: " << obj.getDouble() << std::endl;
 
-	(void)obj;
 	return (o);
 }
 
@@ -114,39 +124,146 @@ double				Convertor::getDouble() const
 *
 *******************************************************************************/
 
-static int	static_detect_type1(const std::string& raw)
+static bool	_is_char(const std::string& raw)
 {
-	if (isdigit(raw[0]))
-		return (INT);
-	else
-		return (CHAR);
+	if (raw.length() == 3 && raw[0] == '\'' && raw[2] == '\'')
+		return (true);
+	return (false);
+}
+
+static bool	_is_int(const std::string& raw)
+{
+	for (size_t i = 0; i < raw.length(); i++)
+	{
+		if (isdigit(raw[i]) == 0)
+			return (false);
+	}
+	return (true);
+}
+
+static bool	_is_float(const std::string& raw)
+{
+	bool	found_dot;
+	size_t	i;
+
+	if (raw == "nanf" || raw == "+inff" || raw == "-inff")
+		return (true);
+	found_dot = false;
+	i = 0;
+	if (raw[0] == '-')
+		i = 1;
+	for (; i < raw.length(); i++)
+	{
+		if (raw[i] == '.')
+		{
+			if (found_dot == false)
+				found_dot = true;
+			else
+				return (false);
+			continue;
+		}
+		if (i == raw.length() - 1 && raw[i] == 'f')
+			return (true);
+		if (isdigit(raw[i]) == 0)
+			return (false);
+	}
+	return (false);
+}
+
+static bool	_is_double(const std::string& raw)
+{
+	bool	found_dot;
+	size_t	i;
+
+	if (raw == "nan" || raw == "+inf" || raw == "-inf")
+		return (true);
+	found_dot = false;
+	i = 0;
+	if (raw[0] == '-')
+		i = 1;
+	for (; i < raw.length(); i++)
+	{
+		if (raw[i] == '.')
+		{
+			if (found_dot == false)
+				found_dot = true;
+			else
+				return (false);
+			continue;
+		}
+		if (isdigit(raw[i]) == 0)
+			return (false);
+	}
+	return (true);
 }
 
 void	Convertor::_detect_type()
 {
-	if (_raw.empty() == true)
+	if (_is_char(_raw) == true)
+		_type = CHAR;
+	else if (_is_int(_raw) == true)
+		_type = INT;
+	else if (_is_float(_raw) == true)
+		_type = FLOAT;
+	else if (_is_double(_raw) == true)
+		_type = DOUBLE;
+	else
 		throw (InvalidStringException());
 
-	std::sscanf(_raw.c_str(), "%d", static_cast<int *>(&_int));
-	std::sscanf(_raw.c_str(), "%f", &_float);
-	std::sscanf(_raw.c_str(), "%lf", &_double);
-	std::sscanf(_raw.c_str(), "%c", &_char);
+	return;
+}
 
-	if (_raw.size() == 1)
-		_type = static_detect_type1(_raw);
-	else if (_raw == "nan" || _raw == "+inf" || _raw == "-inf")
-		_type = DOUBLE;
-	else if (_raw == "nanf" || _raw == "+inff" || _raw == "-inff")
-		_type = FLOAT;
-	// else if ()
-	// else
-	// {
-	// 	if (std::sscanf(_raw.c_str(), "%d", &_int) != 0)
-	// 	{
-	// 		std::cout << "Yo" << std::endl;
-	// 		_type = INT;
-	// 	}
-	// }
+void	Convertor::_from_char()
+{
+	_char = _raw[1];
+	_int = static_cast<int>(_char);
+	_float = static_cast<float>(_char);
+	_double = static_cast<double>(_char);
+}
+
+void	Convertor::_from_int()
+{
+	std::sscanf(_raw.c_str(), "%d", &_int);
+	_char = static_cast<char>(_int);
+	_float = static_cast<float>(_int);
+	_double = static_cast<double>(_int);
+}
+
+void	Convertor::_from_float()
+{
+	std::sscanf(_raw.c_str(), "%f", &_float);
+	_char = static_cast<char>(_float);
+	_int = static_cast<int>(_float);
+	_double = static_cast<double>(_float);
+}
+
+void	Convertor::_from_double()
+{
+	std::sscanf(_raw.c_str(), "%lf", &_double);
+	_char = static_cast<char>(_double);
+	_int = static_cast<int>(_double);
+	_float = static_cast<float>(_double);
+}
+
+void	Convertor::_convert_all()
+{
+	switch (_type)
+	{
+		case CHAR:
+			_from_char();
+			break;
+		case INT:
+			_from_int();
+			break;
+		case FLOAT:
+			_from_float();
+			break;
+		case DOUBLE:
+			_from_double();
+			break;
+		default:
+			throw (InvalidStringException());
+	}
 	return;
 }
 
