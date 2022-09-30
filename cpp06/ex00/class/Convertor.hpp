@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 18:39:54 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/28 16:32:42 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/09/30 17:25:08 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 # define CONVERTOR_HPP
 
 # include <iostream>
+# include <iomanip>
 # include <cstdio>
+# include <string>
 
 enum types {
 	INVALID,
@@ -39,6 +41,12 @@ private:
 
 	// Member functions
 	void	_detect_type();
+	void	_convert_all();
+
+	void	_from_char();
+	void	_from_int();
+	void	_from_float();
+	void	_from_double();
 
 protected:
 
