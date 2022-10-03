@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 18:39:52 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/30 17:43:33 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/10/03 14:31:08 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,18 @@ Convertor::Convertor()
 
 Convertor::Convertor(const std::string& raw)
 	: _raw(raw), _type(0), _char(48), _int(0), _float(0.0f), _double(0.0)
+	, _char_int_possible(true)
 {
-	std::cout << _raw << std::endl;
 	_detect_type();
 	_convert_all();
-	std::cout << _type << std::endl;
 	return;
 }
 
 Convertor::Convertor(const Convertor& src)
 {
 	*this = src;
+	_detect_type();
+	_convert_all();
 	return;
 }
 
@@ -62,11 +63,6 @@ Convertor&	Convertor::operator=(const Convertor& rhs)
 	if (this != &rhs)
 	{
 		_raw = rhs._raw;
-		_type = rhs._type;
-		_char = rhs._char;
-		_int = rhs._int;
-		_float = rhs._float;
-		_double = rhs._double;
 	}
 
 	return (*this);
@@ -74,12 +70,18 @@ Convertor&	Convertor::operator=(const Convertor& rhs)
 
 std::ostream&	operator<<(std::ostream& o, const Convertor& obj)
 {
-	if (obj.getInt() < 32 || obj.getInt() > 126)
+	if (obj.getCharIntPossible() == false)
+		o << "char: impossible" << std::endl;
+	else if (obj.getInt() < 32 || obj.getInt() > 126)
 		o << "char: Non displayable" << std::endl;
 	else
 		o << "char: " << "'" << obj.getChar() << "'" << std::endl;
 
-	o << "int: " << obj.getInt() << std::endl;
+	if (obj.getCharIntPossible() == false)
+		o << "int: impossible" << std::endl;
+	else
+		o << "int: " << obj.getInt() << std::endl;
+
 	o << std::setprecision(1) << std::fixed;
 	o << "float: " << obj.getFloat() << "f" << std::endl;
 	o << "double: " << obj.getDouble() << std::endl;
@@ -118,6 +120,16 @@ double				Convertor::getDouble() const
 	return (_double);
 }
 
+bool				Convertor::getCharIntPossible() const
+{
+	return (_char_int_possible);
+}
+
+void				Convertor::setCharIntPossible(bool val)
+{
+	_char_int_possible = val;
+}
+
 /*******************************************************************************
 *
 *                            Member functions
@@ -141,13 +153,16 @@ static bool	_is_int(const std::string& raw)
 	return (true);
 }
 
-static bool	_is_float(const std::string& raw)
+static bool	_is_float(const std::string& raw, Convertor& c)
 {
 	bool	found_dot;
 	size_t	i;
 
 	if (raw == "nanf" || raw == "+inff" || raw == "-inff")
+	{
+		c.setCharIntPossible(false);
 		return (true);
+	}
 	found_dot = false;
 	i = 0;
 	if (raw[0] == '-')
@@ -170,13 +185,16 @@ static bool	_is_float(const std::string& raw)
 	return (false);
 }
 
-static bool	_is_double(const std::string& raw)
+static bool	_is_double(const std::string& raw, Convertor& c)
 {
 	bool	found_dot;
 	size_t	i;
 
 	if (raw == "nan" || raw == "+inf" || raw == "-inf")
+	{
+		c.setCharIntPossible(false);
 		return (true);
+	}
 	found_dot = false;
 	i = 0;
 	if (raw[0] == '-')
@@ -203,9 +221,9 @@ void	Convertor::_detect_type()
 		_type = CHAR;
 	else if (_is_int(_raw) == true)
 		_type = INT;
-	else if (_is_float(_raw) == true)
+	else if (_is_float(_raw, *this) == true)
 		_type = FLOAT;
-	else if (_is_double(_raw) == true)
+	else if (_is_double(_raw, *this) == true)
 		_type = DOUBLE;
 	else
 		throw (InvalidStringException());

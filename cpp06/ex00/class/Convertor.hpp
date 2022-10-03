@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 18:39:54 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/30 18:13:58 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/10/03 14:31:27 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,13 @@ private:
 	float		_float;
 	double		_double;
 
+	bool		_char_int_possible;
+	// bool		_int_possible;
+
+	// Constructor
+	Convertor();
+	Convertor(const Convertor& src);
+
 	// Member functions
 	void	_detect_type();
 	void	_convert_all();
@@ -51,10 +58,9 @@ private:
 protected:
 
 public:
+
 	// Constructors
-	Convertor();
 	Convertor(const std::string& raw);
-	Convertor(const Convertor& src);
 
 	// Destructors
 	virtual ~Convertor();
@@ -68,8 +74,10 @@ public:
 	int					getInt() const;
 	float				getFloat() const;
 	double				getDouble() const;
+	bool				getCharIntPossible() const;
 
 	// Setters (setters should receive parameters by value or const-reference)
+	void				setCharIntPossible(bool val);
 
 	// Member functions
 
