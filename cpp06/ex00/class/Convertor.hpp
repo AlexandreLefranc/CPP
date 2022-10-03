@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 18:39:54 by alefranc          #+#    #+#             */
-/*   Updated: 2022/10/03 14:31:27 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/10/03 17:58:48 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ private:
 	double		_double;
 
 	bool		_char_int_possible;
-	// bool		_int_possible;
+	bool		_int_overflow;
 
 	// Constructor
 	Convertor();
@@ -75,6 +75,7 @@ public:
 	float				getFloat() const;
 	double				getDouble() const;
 	bool				getCharIntPossible() const;
+	bool				getIntOverflow() const;
 
 	// Setters (setters should receive parameters by value or const-reference)
 	void				setCharIntPossible(bool val);
