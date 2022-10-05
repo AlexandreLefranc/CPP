@@ -5,20 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/05 10:57:52 by alefranc          #+#    #+#             */
-/*   Updated: 2022/10/05 11:06:05 by alefranc         ###   ########.fr       */
+/*   Created: 2022/10/05 12:08:26 by alefranc          #+#    #+#             */
+/*   Updated: 2022/10/05 15:53:07 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ARRAY_HPP
 # define ARRAY_HPP
 
+# include <iostream>
+
 template <typename T>
 class Array
 {
 private:
 
-	T*	array;
+	T*					_array;
+	unsigned int		_size;
 
 public:
 
@@ -31,15 +34,25 @@ public:
 	~Array<T>();
 
 	// Overload
-	T&	operator=(const Array<T>& rhs);
-	T&	operator[](unsigned int i);
+	Array<T>&	operator=(const Array<T>& rhs);
+	T&			operator[](unsigned int i);
+	const T&	operator[](unsigned int i) const;
 
 	// Member function
-	size_t	size() const;
+	unsigned int	size() const;
 
 	// Exception
 	class	InvalidIndexException;
 
-}
+};
+
+template <typename T>
+class	Array<T>::InvalidIndexException: public std::exception
+{
+public:
+	virtual const char*	what() const throw();
+};
+
+#include "Array.tpp"
 
 #endif
