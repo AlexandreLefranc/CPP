@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 18:39:52 by alefranc          #+#    #+#             */
-/*   Updated: 2022/10/03 18:01:46 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/10/04 14:29:16 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Convertor::Convertor()
 
 Convertor::Convertor(const std::string& raw)
 	: _raw(raw), _type(0), _char(48), _int(0), _float(0.0f), _double(0.0)
-	, _char_int_possible(true)//, _int_overflow(false)
+	, _char_int_possible(true), _int_overflow(false)
 {
 	_detect_type();
 	_convert_all();
@@ -177,7 +177,7 @@ static bool	_is_float(const std::string& raw, Convertor& c)
 	bool	found_dot;
 	size_t	i;
 
-	if (raw == "nanf" || raw == "+inff" || raw == "-inff")
+	if (raw == "nanf" || raw == "+inff" || raw == "inff" || raw == "-inff")
 	{
 		c.setCharIntPossible(false);
 		return (true);
@@ -209,7 +209,7 @@ static bool	_is_double(const std::string& raw, Convertor& c)
 	bool	found_dot;
 	size_t	i;
 
-	if (raw == "nan" || raw == "+inf" || raw == "-inf")
+	if (raw == "nan" || raw == "+inf" || raw == "inf" || raw == "-inf")
 	{
 		c.setCharIntPossible(false);
 		return (true);
