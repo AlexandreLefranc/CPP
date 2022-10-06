@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/08/17 15:13:36 by alefranc          #+#    #+#              #
-#    Updated: 2022/10/05 17:51:57 by alefranc         ###   ########.fr        #
+#    Created: 2022/10/06 14:17:57 by alefranc          #+#    #+#              #
+#    Updated: 2022/10/06 15:40:44 by alefranc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@
 #             COMPILATION            #
 #------------------------------------#
 
-NAME = iter
+NAME = array
 
 CC = c++
 CFLAG = -Wall -Wextra -Werror -g3 -std=c++98
@@ -29,7 +29,7 @@ CFLAG = -Wall -Wextra -Werror -g3 -std=c++98
 #               HEADERS              #
 #------------------------------------#
 
-HEADER		= iter.hpp
+HEADER		=	easyfind.hpp
 
 #------------------------------------#
 #          SOURCES AND CLASSES       #
