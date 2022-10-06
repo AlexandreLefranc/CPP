@@ -6,7 +6,7 @@
 #    By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/06 15:54:47 by alefranc          #+#    #+#              #
-#    Updated: 2022/10/06 15:54:56 by alefranc         ###   ########.fr        #
+#    Updated: 2022/10/06 16:03:29 by alefranc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #------------------------------------------------------------------------------#
@@ -22,13 +22,13 @@
 NAME = span
 
 CC = c++
-CFLAG = -Wall -Wextra -Werror -std=c++98
+CFLAG = -Wall -Wextra -Werror -std=c++98 -g3
 
 #------------------------------------#
 #               HEADERS              #
 #------------------------------------#
 
-HEADER		=	class/Fixed.hpp
+HEADER		=	class/Span.hpp
 
 #------------------------------------#
 #          SOURCES AND CLASSES       #
@@ -39,9 +39,7 @@ SRCDIR		=	src/
 SRCFILE		=	main.cpp
 
 CLDIR		=	class/
-CLFILE		=	Fixed.cpp \
-				Fixed.construct.cpp \
-				Fixed.operator.cpp
+CLFILE		=	Span.cpp \
 
 SRC			=	$(addprefix $(SRCDIR), $(SRCFILE))
 CL			=	$(addprefix $(CLDIR), $(CLFILE))

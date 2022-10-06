@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Span.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/06 16:02:11 by alefranc          #+#    #+#             */
+/*   Updated: 2022/10/06 18:26:25 by alefranc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Span.hpp"
 
 /*******************************************************************************
@@ -7,42 +19,48 @@
 *******************************************************************************/
 
 Span::Span()
+	: _data(std::vector<int>(0, 0)), _max(0), _count(0)
 {
-	std::cout << "Default Span constructor called." << std::endl;
+	return;
+}
+
+Span::Span(unsigned int n)
+	: _data(std::vector<int>(0, 0)), _max(n), _count(0)
+{
+	std::cout << _max << std::endl;
 	return;
 }
 
 Span::Span(const Span& src)
 {
-	std::cout << "Copy Span constructor called." << std::endl;
 	*this = src;
 	return;
 }
 
-/*******************************************************************************
-*
-*                            Destructor
-*
-*******************************************************************************/
-
+// /*******************************************************************************
+// *
+// *                            Destructor
+// *
+// *******************************************************************************/
+//
 Span::~Span()
 {
-	std::cout << "Span Destructor called." << std::endl;
 	return;
 }
-
-/*******************************************************************************
-*
-*                            Operator overload
-*
-*******************************************************************************/
-
+//
+// /*******************************************************************************
+// *
+// *                            Operator overload
+// *
+// *******************************************************************************/
+//
 Span&	Span::operator=(const Span& rhs)
 {
-	std::cout << "Span Assignment operator called." << std::endl;
 	if (this != &rhs)
 	{
-		// Copy all attributes
+		_data = rhs._data;
+		_max  = rhs._max;
+		_count = rhs._count;
 	}
 
 	return (*this);
@@ -50,7 +68,10 @@ Span&	Span::operator=(const Span& rhs)
 
 std::ostream&	operator<<(std::ostream& o, const Span& obj)
 {
-	o << "A Span instance";
+	o << "[ ";
+	for (unsigned long i = 0; i < obj.getData().size(); i++)
+		o << obj.getData()[i] << " ";
+	o << "]";
 
 	return (o);
 }
@@ -61,11 +82,51 @@ std::ostream&	operator<<(std::ostream& o, const Span& obj)
 *
 *******************************************************************************/
 
+const std::vector<int>&	Span::getData() const
+{
+	return (_data);
+}
+
 /*******************************************************************************
 *
 *                            Member functions
 *
 *******************************************************************************/
+
+void	Span::addNumber(int n)
+{
+	if (_count < _max)
+	{
+		_data.push_back(n);
+		_count++;
+	}
+	else
+		throw (FullSpanException());
+}
+
+int		Span::shortestSpan()
+{
+	std::vector<int>	tmp = _data;
+	int					shortest;
+
+	std::sort(tmp.begin(), tmp.end());
+	shortest = tmp[1] - tmp[0];
+	for (unsigned long int i = 0; i < tmp.size() - 1; i++)
+	{
+		if (tmp[i + 1] - tmp[i] < shortest)
+			shortest = tmp[i + 1] - tmp[i];
+	}
+
+	return (shortest);
+}
+
+int		Span::longestSpan()
+{
+	int	min = *std::min_element(_data.begin(), _data.end());
+	int	max = *std::max_element(_data.begin(), _data.end());
+
+	return (max - min);
+}
 
 /*******************************************************************************
 *
@@ -73,8 +134,8 @@ std::ostream&	operator<<(std::ostream& o, const Span& obj)
 *
 *******************************************************************************/
 
-const char*	Span::ExampleException::what() const throw()
+const char*	Span::FullSpanException::what() const throw()
 {
-	return ("Example exception message");
+	return ("Span is full!");
 }
 
