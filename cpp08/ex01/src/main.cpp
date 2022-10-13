@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 15:56:43 by alefranc          #+#    #+#             */
-/*   Updated: 2022/10/13 15:27:16 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/10/13 15:45:17 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,15 +78,16 @@ int	main()
 
 		sp.addNumber(5);
 		std::cout << sp << std::endl;
-		sp.addNumber(intarray, intarray + 3);
-		intvector.insert(intvector.end(), intarray, intarray + 3);
-
-		for (size_t i = 0; i < intvector.size(); i++)
-			std::cout << intvector[i] << " ";
-		std::cout << std::endl;
-
+		sp.addNumber(intvector.begin(), intvector.end());
 		std::cout << sp << std::endl;
-
+	}
+	std::cout << std::endl;
+	{
+		Span	sp(1000000);
+		for (int i = 0; i < 1000000; i++)
+			sp.addNumber(i);
+		std::cout << sp.shortestSpan() << std::endl;
+		std::cout << sp.longestSpan() << std::endl;
 	}
 
 	return (0);

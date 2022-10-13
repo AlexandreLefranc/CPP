@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 16:02:14 by alefranc          #+#    #+#             */
-/*   Updated: 2022/10/13 15:34:14 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/10/13 15:35:05 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,7 @@ public:
 
 	// Member functions
 	void	addNumber(int n);
-	template <typename InputIterator>
-	void	addNumber(InputIterator begin, InputIterator end);
+	void	addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 	int		shortestSpan();
 	int		longestSpan();
 

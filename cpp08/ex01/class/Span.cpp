@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 16:02:11 by alefranc          #+#    #+#             */
-/*   Updated: 2022/10/13 15:32:46 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/10/13 15:36:25 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,18 +103,12 @@ void	Span::addNumber(int n)
 		throw (FullSpanException());
 }
 
-template <typename InputIterator>
-void	Span::addNumber(InputIterator begin, InputIterator end)
+void	Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
+	if (end - begin + _data.size() > _max)
+		throw (FullSpanException());
 	_data.insert(_data.end(), begin, end);
 }
-
-// void	Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
-// {
-// 	if (end - begin + _data.size() > _max)
-// 		throw (FullSpanException());
-// 	_data.insert(_data.end(), begin, end);
-// }
 
 int		Span::shortestSpan()
 {
