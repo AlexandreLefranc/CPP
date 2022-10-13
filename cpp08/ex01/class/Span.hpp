@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 16:02:14 by alefranc          #+#    #+#             */
-/*   Updated: 2022/10/06 18:23:14 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/10/13 15:34:14 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,14 @@ public:
 
 	// Member functions
 	void	addNumber(int n);
+	template <typename InputIterator>
+	void	addNumber(InputIterator begin, InputIterator end);
 	int		shortestSpan();
 	int		longestSpan();
 
 	// Exceptions
-	class FullSpanException;
+	class	FullSpanException;
+	class	TooSmallSpanException;
 
 };
 
@@ -63,6 +66,12 @@ std::ostream&	operator<<(std::ostream& o, const Span& obj);
 
 // Exception nested classes
 class Span::FullSpanException: public std::exception
+{
+public:
+	virtual const char*	what() const throw();
+};
+
+class Span::TooSmallSpanException: public std::exception
 {
 public:
 	virtual const char*	what() const throw();

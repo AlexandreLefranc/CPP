@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 16:02:11 by alefranc          #+#    #+#             */
-/*   Updated: 2022/10/06 18:26:25 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/10/13 15:32:46 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ Span::Span()
 Span::Span(unsigned int n)
 	: _data(std::vector<int>(0, 0)), _max(n), _count(0)
 {
-	std::cout << _max << std::endl;
 	return;
 }
 
@@ -104,10 +103,26 @@ void	Span::addNumber(int n)
 		throw (FullSpanException());
 }
 
+template <typename InputIterator>
+void	Span::addNumber(InputIterator begin, InputIterator end)
+{
+	_data.insert(_data.end(), begin, end);
+}
+
+// void	Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+// {
+// 	if (end - begin + _data.size() > _max)
+// 		throw (FullSpanException());
+// 	_data.insert(_data.end(), begin, end);
+// }
+
 int		Span::shortestSpan()
 {
 	std::vector<int>	tmp = _data;
 	int					shortest;
+
+	if (_data.size() < 2)
+		throw (TooSmallSpanException());
 
 	std::sort(tmp.begin(), tmp.end());
 	shortest = tmp[1] - tmp[0];
@@ -122,6 +137,9 @@ int		Span::shortestSpan()
 
 int		Span::longestSpan()
 {
+	if (_data.size() < 2)
+		throw (TooSmallSpanException());
+
 	int	min = *std::min_element(_data.begin(), _data.end());
 	int	max = *std::max_element(_data.begin(), _data.end());
 
@@ -137,5 +155,10 @@ int		Span::longestSpan()
 const char*	Span::FullSpanException::what() const throw()
 {
 	return ("Span is full!");
+}
+
+const char*	Span::TooSmallSpanException::what() const throw()
+{
+	return ("Span is too small!");
 }
 

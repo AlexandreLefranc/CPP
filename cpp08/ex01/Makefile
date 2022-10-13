@@ -6,9 +6,10 @@
 #    By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/06 15:54:47 by alefranc          #+#    #+#              #
-#    Updated: 2022/10/06 16:03:29 by alefranc         ###   ########.fr        #
+#    Updated: 2022/10/13 15:30:43 by alefranc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
 #------------------------------------------------------------------------------#
 #                                                                              #
 #                               DECLARATIONS                                   #
@@ -21,7 +22,7 @@
 
 NAME = span
 
-CC = c++
+CC = g++
 CFLAG = -Wall -Wextra -Werror -std=c++98 -g3
 
 #------------------------------------#
@@ -70,7 +71,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CFLAG) $(LD_FLAGS) $(OBJ) -o $(NAME)
 
-$(OBJDIR)%.o: $(SRCDIR)%.cpp
+$(OBJDIR)%.o: $(SRCDIR)%.cpp $(HEADER)
 	@mkdir -p `dirname $@`
 	$(CC) $(CFLAG) -c $< -o $@ $(INC_FLAG)
 
