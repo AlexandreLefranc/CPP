@@ -1,6 +1,7 @@
 #ifndef MUTANTSTACK_TPP
 # define MUTANTSTACK_TPP
 
+// Constructors
 template <typename T, typename Container>
 MutantStack<T, Container>::MutantStack()
 {
@@ -14,12 +15,14 @@ MutantStack<T, Container>::MutantStack(const MutantStack<T, Container>& src)
 	return ;
 }
 
+// Destructors
 template <typename T, typename Container>
 MutantStack<T, Container>::~MutantStack()
 {
 	return ;
 }
 
+// Operator overload
 template <typename T, typename Container>
 MutantStack<T, Container>&	MutantStack<T, Container>::operator=(const MutantStack<T, Container>& rhs)
 {
@@ -30,12 +33,7 @@ MutantStack<T, Container>&	MutantStack<T, Container>::operator=(const MutantStac
 	return (*this);
 }
 
-template <typename T, typename Container>
-const Container&	MutantStack<T, Container>::getContainer()
-{
-	return (this->c);
-}
-
+// Iterators
 template <typename T, typename Container>
 typename Container::iterator	MutantStack<T, Container>::begin()
 {

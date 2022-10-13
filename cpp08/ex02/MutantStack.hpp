@@ -32,9 +32,6 @@ public:
 	// Operator overload
 	MutantStack<T, Container>&	operator=(const MutantStack<T, Container>& rhs);
 
-	// Getters
-	const Container&	getContainer();
-
 	// Iterators
 	typename Container::iterator	begin();
 	typename Container::iterator	end();
