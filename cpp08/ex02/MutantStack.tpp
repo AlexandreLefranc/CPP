@@ -28,7 +28,7 @@ MutantStack<T, Container>&	MutantStack<T, Container>::operator=(const MutantStac
 {
 	if (this != &rhs)
 	{
-
+		this->c = rhs.c;
 	}
 	return (*this);
 }
