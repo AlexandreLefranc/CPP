@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 18:16:41 by alefranc          #+#    #+#             */
-/*   Updated: 2022/08/23 18:05:41 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/12/15 13:50:00 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,20 @@ protected:
 	int			_mana;
 	int			_dmg;
 
+	ClapTrap(const std::string& name, int hp, int mana, int dmg);
+	
 public:
 
 	// Constructors
 	ClapTrap();
-	ClapTrap(ClapTrap const & src);
+	ClapTrap(const ClapTrap& src);
 	ClapTrap(std::string name);
 
 	// Destructors
 	~ClapTrap();
 
 	// Operator overload
-	ClapTrap &	operator=(ClapTrap const & rhs);
+	ClapTrap &	operator=(const ClapTrap& rhs);
 
 	// Accessors
 	std::string	getName() const;

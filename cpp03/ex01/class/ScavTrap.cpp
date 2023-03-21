@@ -8,21 +8,16 @@
 ******************************************************************************/
 
 ScavTrap::ScavTrap()
+	: ClapTrap("", 100, 50, 20)
 {
 	std::cout << "Default ScavTrap constructor called." << std::endl;
-	this->_hp = 100;
-	this->_mana = 50;
-	this->_dmg = 20;
 	return;
 }
 
 ScavTrap::ScavTrap(std::string name)
+	: ClapTrap(name, 100, 50, 20)
 {
 	std::cout << "Parametric ScavTrap constructor called." << std::endl;
-	this->_name = name;
-	this->_hp = 100;
-	this->_mana = 50;
-	this->_dmg = 20;
 	return;
 }
 

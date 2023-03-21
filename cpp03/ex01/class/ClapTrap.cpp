@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 18:16:39 by alefranc          #+#    #+#             */
-/*   Updated: 2022/08/18 14:58:29 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/12/15 13:51:31 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,13 @@ ClapTrap::ClapTrap(ClapTrap const & src)
 ClapTrap::ClapTrap(std::string name): _name(name), _hp(10), _mana(10), _dmg(0)
 {
 	std::cout << "Parametric ClapTrap constructor called: " << this->_name << std::endl;
+	return;
+}
+
+ClapTrap::ClapTrap(const std::string& name, int hp, int mana, int dmg)
+	: _name(name), _hp(hp), _mana(mana), _dmg(dmg)
+{
+	std::cout << "Full Parametric ClapTrap constructor called: " << this->_name << std::endl;
 	return;
 }
 

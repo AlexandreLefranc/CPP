@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 15:51:52 by alefranc          #+#    #+#             */
-/*   Updated: 2022/08/16 16:43:14 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/12/14 16:10:05 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,22 +82,37 @@ bool 	Fixed::operator!=(Fixed const &rhs)
 // Arithmetics operator overload
 Fixed	Fixed::operator+(Fixed const &rhs)
 {
-	return (Fixed(this->toFloat() + rhs.toFloat()));
+	int	new_raw = this->getRawBits() + rhs.getRawBits();
+	Fixed tmp;
+	tmp.setRawBits(new_raw);
+	return (tmp);
 }
 
 Fixed	Fixed::operator-(Fixed const &rhs)
 {
-	return (Fixed(this->toFloat() - rhs.toFloat()));
+	int	new_raw = this->getRawBits() - rhs.getRawBits();
+	Fixed tmp;
+	tmp.setRawBits(new_raw);
+	return (tmp);
 }
 
 Fixed	Fixed::operator*(Fixed const &rhs)
 {
-	return (Fixed(this->toFloat() * rhs.toFloat()));
+	int	new_raw = this->getRawBits() * rhs.getRawBits();
+	new_raw = new_raw >> this->getBinaryPointPos();
+	Fixed tmp;
+	tmp.setRawBits(new_raw);
+	return (tmp);
 }
 
 Fixed	Fixed::operator/(Fixed const &rhs)
 {
-	return (Fixed(this->toFloat() / rhs.toFloat()));
+	int new_raw_divident = this->getRawBits() << this->getBinaryPointPos();
+	int	new_raw = new_raw_divident / rhs.getRawBits();
+
+	Fixed tmp;
+	tmp.setRawBits(new_raw);
+	return (tmp);
 }
 
 // Increment and decrement operator overload

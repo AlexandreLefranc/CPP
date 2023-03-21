@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 12:20:36 by alefranc          #+#    #+#             */
-/*   Updated: 2022/08/16 17:20:47 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/12/14 15:57:17 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,17 @@ int	main()
 		std::cout << std::endl << "Testing arithmetics" << std::endl;
 		Fixed	a(3);
 		Fixed	b(5);
+
+		std::cout << a << " + " << b << " = " << (a + b) << std::endl;
+		std::cout << a << " - " << b << " = " << (a - b) << std::endl;
+		std::cout << a << " * " << b << " = " << (a * b) << std::endl;
+		std::cout << a << " / " << b << " = " << (a / b) << std::endl;
+	}
+
+		{
+		std::cout << std::endl << "Testing arithmetics" << std::endl;
+		Fixed	a(3.42f);
+		Fixed	b(5.42f);
 
 		std::cout << a << " + " << b << " = " << (a + b) << std::endl;
 		std::cout << a << " - " << b << " = " << (a - b) << std::endl;

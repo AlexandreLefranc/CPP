@@ -6,7 +6,7 @@
 /*   By: alefranc <alefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 16:40:18 by alefranc          #+#    #+#             */
-/*   Updated: 2022/09/23 16:14:14 by alefranc         ###   ########.fr       */
+/*   Updated: 2022/12/30 15:12:44 by alefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ int	main()
 		bobo.executeForm(f);
 		std::cout << std::endl;
 		bubu.executeForm(f_copy);
+		bubu.signForm(f_copy);
 		bubu.signForm(f_copy);
 		bubu.executeForm(f_copy);
 		bobo.executeForm(f_copy);

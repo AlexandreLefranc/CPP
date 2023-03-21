@@ -78,6 +78,9 @@ int	main()
 		try
 		{
 			Bureaucrat	nullos = Bureaucrat("Nullos", 149);
+			Bureaucrat	nullos2 = Bureaucrat("Nullos2", 149);
+			Bureaucrat	nullos3 = Bureaucrat("Nullos3", 149);
+
 			std::cout << nullos << std::endl;
 			std::cout << "Grade down !" << std::endl;
 			nullos.gradeDown();
@@ -85,11 +88,64 @@ int	main()
 			std::cout << "Grade down !" << std::endl;
 			nullos.gradeDown();
 			std::cout << nullos << std::endl;
+
+			std::cout << nullos2 << std::endl;
+			std::cout << "Grade down !" << std::endl;
+			nullos2.gradeDown();
+			std::cout << nullos2 << std::endl;
+			std::cout << "Grade down !" << std::endl;
+			nullos2.gradeDown();
+			std::cout << nullos2 << std::endl;
+
+			std::cout << nullos3 << std::endl;
+			std::cout << "Grade down !" << std::endl;
+			nullos3.gradeDown();
+			std::cout << nullos3 << std::endl;
+			std::cout << "Grade down !" << std::endl;
+			nullos3.gradeDown();
+			std::cout << nullos3 << std::endl;
 		}
 		catch (std::exception& e)
 		{
 			std::cout << "Error: " << e.what() << std::endl;
 		}
+
+		try
+		{
+			Bureaucrat	nullos = Bureaucrat("Nullos", 149);
+			Bureaucrat	nullos2 = Bureaucrat("Nullos2", 149);
+			Bureaucrat	nullos3 = Bureaucrat("Nullos3", 149);
+
+			std::cout << nullos << std::endl;
+			std::cout << "Grade down !" << std::endl;
+			nullos.gradeDown();
+			std::cout << nullos << std::endl;
+			std::cout << "Grade down !" << std::endl;
+			nullos.gradeDown();
+			std::cout << nullos << std::endl;
+
+			std::cout << nullos2 << std::endl;
+			std::cout << "Grade down !" << std::endl;
+			nullos2.gradeDown();
+			std::cout << nullos2 << std::endl;
+			std::cout << "Grade down !" << std::endl;
+			nullos2.gradeDown();
+			std::cout << nullos2 << std::endl;
+
+			std::cout << nullos3 << std::endl;
+			std::cout << "Grade down !" << std::endl;
+			nullos3.gradeDown();
+			std::cout << nullos3 << std::endl;
+			std::cout << "Grade down !" << std::endl;
+			nullos3.gradeDown();
+			std::cout << nullos3 << std::endl;
+		}
+		catch (std::exception& e)
+		{
+			std::cout << "Error: " << e.what() << std::endl;
+		}
+
+		
 	}
 
 	return (0);
